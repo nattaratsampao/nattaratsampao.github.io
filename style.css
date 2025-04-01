@@ -1,0 +1,946 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(45deg, #D9C5E1, #C8D9F2); /* สำหรับ body */
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Lock Screen Styles */
+.lock-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #E1D6F2, #F2C5E9); /* สำหรับ .lock-screen */
+    color: #fff;
+}
+
+.recipient, .recipient-name {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.clock {
+    font-size: 5rem;
+    font-weight: 300;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+.image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.lock-message {
+    font-size: 1.5rem;
+    opacity: 0.7;
+    animation: fadeInOut 2s infinite;
+}
+
+/* Main Content Styles */
+.main-content {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(217, 197, 225, 0.95) 0%, rgba(202, 217, 242, 0.95) 100%); /* สำหรับ .main-content */
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.3); /* สำหรับ .message-card */
+    box-shadow: 0 8px 32px rgba(183, 157, 225, 0.3);
+    backdrop-filter: blur(15px); /* สำหรับ .message-card */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(183, 157, 225, 0.3); /* สำหรับ .message-card */
+}
+
+.message-header {
+    text-align: center;
+    color: #fff; /* สำหรับ .recipient, .message-header, .user-message */
+    margin-bottom: 2rem;
+}
+
+.timestamp {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.user-message {
+    font-family: 'kanit', sans-serif;
+    color: #fff; /* สำหรับ .recipient, .message-header, .user-message */
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Heart Animation Styles */
+.heart-container {
+    text-align: center;
+}
+
+.heart {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #FF90B3; /* สำหรับ .heart */
+    transform: rotate(45deg);
+    animation: heartbeat 1.5s infinite;
+    position: relative;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ff9ecd;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -25px;
+}
+
+.heart::after {
+    top: -25px;
+}
+
+/* Choice Section Styles */
+.choice-container {
+    padding: 2rem;
+    text-align: center;
+}
+
+.choice-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.choice-card {
+    background: rgba(255, 255, 255, 0.2); /* สำหรับ .choice-card */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(183, 157, 225, 0.3);
+}
+
+.choice-card.active {
+    background: rgba(255, 182, 193, 0.3); /* สำหรับ .choice-card.active */
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+}
+
+.choice-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.choice-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.choice-card p {
+    font-family: 'kanit', sans-serif;
+    color: #333; /* สำหรับข้อความบางจุด เช่น .choice-card p */
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Navigation Styles */
+.custom-navigation {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+    background: rgba(224, 208, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3); /* สำหรับ .nav-button:hover */
+    transform: translateY(-2px);
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.button-icon {
+    font-size: 20px;
+}
+
+/* Decoration Styles */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.sparkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: white;
+    animation: sparkle 1s linear infinite;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1) rotate(180deg); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.messageSwiper {
+    width: 100%;
+    height: 100vh;
+}
+
+.imageSwiper {
+    height: 300px;
+    margin: 20px 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.swiper-pagination {
+    position: fixed !important;
+    top: 20px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(224, 208, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    backdrop-filter: blur(5px);
+    width: auto !important;
+}
+
+.custom-bullet {
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    margin: 0 !important;
+}
+
+.custom-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: rgba(255, 218, 245, 0.4) !important;
+}
+
+.bullet-icon {
+    font-size: 20px;
+}
+
+.bullet-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .bullet-text {
+        display: none;
+    }
+    
+    .custom-bullet {
+        padding: 8px;
+    }
+    
+    .nav-button {
+        padding: 10px 16px;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.hiddenM {
+    display: none;
+}
+
+.glow-text {
+    color: white;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 30px #e0d0ff,
+                 0 0 40px #ffd5ea;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes heartbeat {
+    0% { transform: rotate(45deg) scale(1); }
+    25% { transform: rotate(45deg) scale(1.1); }
+    50% { transform: rotate(45deg) scale(1); }
+    75% { transform: rotate(45deg) scale(1.1); }
+    100% { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #e0d0ff; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100px); opacity: 0; }
+}
+
+/* Star */
+.star-field {
+    position: relative;
+    height: 300px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    animation: float 2s ease-out forwards;
+}
+
+.particle-container {
+    position: relative;
+    height: 400px;
+}
+
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Final */
+.final-message {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 150px;
+    color: white;
+}
+
+/* Comment Container Styles */
+.comment-container {
+    padding: 2rem;
+    text-align: center;
+    max-width: 1000px; /* กำหนดขนาดสูงสุด */
+    margin: 20px auto;
+}
+
+/* Comment Title Styles */
+.comment-title {
+    font-family: 'kanit', sans-serif;
+    font-size: 2rem; /* ขนาดฟอนต์ที่เหมาะสม */
+    font-weight: 600; /* ใช้ฟอนต์ที่หนา */
+    color: #fff; /* ข้อความสีขาว */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* เงาสีขาวให้ข้อความ */
+}
+
+/* Input Box Styles */
+.comment-input {
+    width: 90%; /* ความกว้างของกล่องข้อความ */
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px; /* ขอบมน */
+    background: rgba(255, 255, 255, 0.2); /* สำหรับ .choice-card */
+    box-shadow: 0 8px 32px rgba(183, 157, 225, 0.3);
+    backdrop-filter: blur(10px);
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงที่นุ่มนวล */
+}
+
+/* Focus Effect ของ Input */
+.comment-input:focus {
+    outline: none;
+    border-color: #A7C7FF; /* เปลี่ยนสีกรอบเมื่อโฟกัส */
+    box-shadow: 0 0 10px rgba(164, 199, 255, 0.6); /* เพิ่มเงาเมื่อโฟกัส */
+}
+
+/* Submit Button Styles */
+.submit-comment {
+    background: #A7C7FF; /* สีพื้นหลังฟ้าอ่อน */
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid #A7C7FF; /* ขอบฟ้าอ่อน */
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect for Submit Button */
+.submit-comment:hover {
+    background: #C9D9FF; /* สีเมื่อ hover จะเป็นฟ้าอ่อนมากขึ้น */
+    transform: translateY(-2px); /* เพิ่มเอฟเฟกต์เมื่อย้ายขึ้น */
+}
+
+/* Active State for Submit Button */
+.submit-comment:active {
+    transform: translateY(2px); /* ลดลงเมื่อกด */
+}
+
+/* Test Panel Styles */
+.test-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.test-toggle {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    padding: 10px;
+    background: #FF6F61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.test-content {
+    padding: 15px;
+    display: none;
+}
+
+.test-content.active {
+    display: block;
+}
+
+.test-content h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.test-content input,
+.test-content button {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #FF6F61;
+}
+
+.test-content button {
+    background: #FF6F61;
+    color: white;
+    cursor: pointer;
+}
+
+.test-content button:hover {
+    background: #ff8577;
+}
+
+.test-content textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #FF6F61;
+}
+
+.test-content input[type="file"] {
+    margin: 5px 0;
+    color: white;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .recipient {
+        font-size: 2rem;
+    }
+
+    .clock {
+        font-size: 4rem;
+    }
+
+    .message-card {
+        padding: 2rem;
+        width: 100%;
+    }
+
+    .heart {
+        width: 40px;
+        height: 40px;
+    }
+
+    .choice-title {
+        font-size: 1.5rem;
+    }
+
+    .choice-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .choice-card {
+        padding: 1rem;
+    }
+
+    .custom-navigation {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+    }
+
+    .swiper-pagination {
+        padding: 8px 12px; /* ลดขนาด padding สำหรับหน้าจอขนาดเล็ก */
+        gap: 8px; /* ปรับ gap สำหรับหน้าจอขนาดเล็ก */
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .recipient {
+        font-size: 1.5rem;
+    }
+
+    .clock {
+        font-size: 3rem;
+    }
+
+    .message-card {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .choice-title {
+        font-size: 1.2rem;
+    }
+
+    .choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-navigation {
+        bottom: 10px;
+    }
+
+    .swiper-pagination {
+        padding: 6px 10px; /* ลดขนาด padding สำหรับมือถือ */
+        gap: 6px; /* ปรับ gap สำหรับมือถือ */
+    }
+}
+
+        /* Hack effect styles */
+        .glitch-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        .glitch-text {
+            font-size: 3rem;
+            position: relative;
+            animation: glitch 0.5s infinite;
+        }
+        
+        .hacktext {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #0f0;
+            letter-spacing: 0.1em;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        .binary {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .binary-line {
+            position: absolute;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            white-space: nowrap;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                text-shadow: 0 0 5px #0f0;
+            }
+            20% {
+                transform: translate(-5px, 5px);
+                text-shadow: -2px 0 red, 2px 2px blue;
+            }
+            40% {
+                transform: translate(5px, -5px);
+                text-shadow: 2px -2px yellow, -2px 0 cyan;
+            }
+            60% {
+                transform: translate(-3px, 2px);
+                text-shadow: 0 0 8px white, 2px 2px green;
+            }
+            80% {
+                transform: translate(3px, -2px);
+                text-shadow: -2px 0 magenta, 2px 2px yellow;
+            }
+            100% {
+                transform: translate(0);
+                text-shadow: 0 0 5px #0f0;
+            }
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #0f0 }
+        }
+        
+        .screen-flicker {
+            animation: flicker 0.3s infinite;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 1; }
+            25% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgba(15, 255, 15, 0.3);
+            animation: scan 2s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+                /* Hack effect styles */
+                .glitch-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    z-index: 9999;
+                    display: none;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #0f0;
+                    font-family: 'Courier New', monospace;
+                    overflow: hidden;
+                }
+                
+                .glitch-text {
+                    font-size: 3rem;
+                    position: relative;
+                    animation: glitch 0.5s infinite;
+                }
+                
+                .hacktext {
+                    font-size: 1.5rem;
+                    margin-top: 2rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    border-right: 0.15em solid #0f0;
+                    letter-spacing: 0.1em;
+                    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+                }
+                
+                .binary {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    opacity: 0.3;
+                    z-index: -1;
+                }
+                
+                .binary-line {
+                    position: absolute;
+                    color: #0f0;
+                    font-family: 'Courier New', monospace;
+                    font-size: 1.2rem;
+                    white-space: nowrap;
+                    animation: fall linear infinite;
+                }
+                
+                @keyframes glitch {
+                    0% {
+                        transform: translate(0);
+                        text-shadow: 0 0 5px #0f0;
+                    }
+                    20% {
+                        transform: translate(-5px, 5px);
+                        text-shadow: -2px 0 red, 2px 2px blue;
+                    }
+                    40% {
+                        transform: translate(5px, -5px);
+                        text-shadow: 2px -2px yellow, -2px 0 cyan;
+                    }
+                    60% {
+                        transform: translate(-3px, 2px);
+                        text-shadow: 0 0 8px white, 2px 2px green;
+                    }
+                    80% {
+                        transform: translate(3px, -2px);
+                        text-shadow: -2px 0 magenta, 2px 2px yellow;
+                    }
+                    100% {
+                        transform: translate(0);
+                        text-shadow: 0 0 5px #0f0;
+                    }
+                }
+                
+                @keyframes fall {
+                    0% {
+                        transform: translateY(-100%);
+                    }
+                    100% {
+                        transform: translateY(100vh);
+                    }
+                }
+                
+                @keyframes typing {
+                    from { width: 0 }
+                    to { width: 100% }
+                }
+                
+                @keyframes blink-caret {
+                    from, to { border-color: transparent }
+                    50% { border-color: #0f0 }
+                }
+                
+                .screen-flicker {
+                    animation: flicker 0.3s infinite;
+                }
+                
+                @keyframes flicker {
+                    0% { opacity: 1; }
+                    25% { opacity: 0.5; }
+                    50% { opacity: 0.8; }
+                    75% { opacity: 0.3; }
+                    100% { opacity: 1; }
+                }
+                
+                .scan-line {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 5px;
+                    background-color: rgba(15, 255, 15, 0.3);
+                    animation: scan 2s linear infinite;
+                }
+                
+                @keyframes scan {
+                    0% { top: 0; }
+                    100% { top: 100%; }
+                }
+                
+                .shake {
+                    animation: shake 0.5s infinite;
+                }
+                
+                @keyframes shake {
+                    0% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    50% { transform: translateX(5px); }
+                    75% { transform: translateX(-5px); }
+                    100% { transform: translateX(0); }
+                }
+
+/* ... Rest of the previous CSS (animations, media queries, etc.) remains the same ... */

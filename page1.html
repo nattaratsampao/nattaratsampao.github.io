@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ความทรงจำของเรา</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            height: 100%;
+            width: 100%;
+            line-height: 1.6;
+        }
+        
+        /* Film grain effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==');
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.06;
+            animation: grain 8s steps(10) infinite;
+        }
+        
+        @keyframes grain {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(-15%, 0); }
+            90% { transform: translate(10%, 5%); }
+        }
+        
+        /* Vignette effect */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        /* Main content container */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Sections */
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Glitch effect */
+        .glitch-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            perspective: 1000px;
+        }
+        
+        .tv-effect {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        .tv-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 1001;
+            pointer-events: none;
+            animation: scanlines 0.1s linear infinite;
+        }
+        
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+        
+        .glitch-text {
+            font-family: 'Mitr', sans-serif;
+            font-size: 6vw;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            animation: flicker 4s linear infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.3; }
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: "ความทรงจำ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip: rect(0, 900px, 0, 0);
+        }
+        
+        .glitch-text::before {
+            text-shadow: -2px 0 #ff00c1;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .glitch-text::after {
+            text-shadow: 2px 0 #00ffff;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(3px, 9999px, 94px, 0); }
+            5% { clip: rect(112px, 9999px, 76px, 0); }
+            10% { clip: rect(142px, 9999px, 151px, 0); }
+            15% { clip: rect(102px, 9999px, 78px, 0); }
+            20% { clip: rect(61px, 9999px, 167px, 0); }
+            25% { clip: rect(110px, 9999px, 121px, 0); }
+            30% { clip: rect(146px, 9999px, 53px, 0); }
+            35% { clip: rect(20px, 9999px, 131px, 0); }
+            40% { clip: rect(35px, 9999px, 174px, 0); }
+            45% { clip: rect(96px, 9999px, 22px, 0); }
+            50% { clip: rect(87px, 9999px, 173px, 0); }
+            55% { clip: rect(116px, 9999px, 153px, 0); }
+            60% { clip: rect(108px, 9999px, 89px, 0); }
+            65% { clip: rect(25px, 9999px, 165px, 0); }
+            70% { clip: rect(109px, 9999px, 145px, 0); }
+            75% { clip: rect(90px, 9999px, 89px, 0); }
+            80% { clip: rect(38px, 9999px, 176px, 0); }
+            85% { clip: rect(2px, 9999px, 176px, 0); }
+            90% { clip: rect(53px, 9999px, 4px, 0); }
+            95% { clip: rect(8px, 9999px, 163px, 0); }
+            100% { clip: rect(103px, 9999px, 155px, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(132px, 9999px, 144px, 0); }
+            5% { clip: rect(38px, 9999px, 200px, 0); }
+            10% { clip: rect(147px, 9999px, 58px, 0); }
+            15% { clip: rect(35px, 9999px, 137px, 0); }
+            20% { clip: rect(36px, 9999px, 157px, 0); }
+            25% { clip: rect(93px, 9999px, 78px, 0); }
+            30% { clip: rect(23px, 9999px, 92px, 0); }
+            35% { clip: rect(164px, 9999px, 3px, 0); }
+            40% { clip: rect(56px, 9999px, 174px, 0); }
+            45% { clip: rect(88px, 9999px, 59px, 0); }
+            50% { clip: rect(123px, 9999px, 117px, 0); }
+            55% { clip: rect(21px, 9999px, 102px, 0); }
+            60% { clip: rect(62px, 9999px, 69px, 0); }
+            65% { clip: rect(68px, 9999px, 127px, 0); }
+            70% { clip: rect(7px, 9999px, 172px, 0); }
+            75% { clip: rect(152px, 9999px, 76px, 0); }
+            80% { clip: rect(38px, 9999px, 103px, 0); }
+            85% { clip: rect(51px, 9999px, 59px, 0); }
+            90% { clip: rect(34px, 9999px, 35px, 0); }
+            95% { clip: rect(7px, 9999px, 156px, 0); }
+            100% { clip: rect(25px, 9999px, 31px, 0); }
+        }
+        
+        /* Cinematic text */
+        .cinematic-text {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            position: relative;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+        
+        .cinematic-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Rain effect */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 998;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+        
+        .rain.visible {
+            opacity: 0.6;
+        }
+        
+        .drop {
+            position: absolute;
+            bottom: 100%;
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+            animation: rain-fall linear infinite;
+        }
+        
+        @keyframes rain-fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(calc(100vh + 100px)); }
+        }
+        
+        /* Timer */
+        .timer {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 40px 0;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 2s ease, transform 2s ease;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            color: #f0f0f0;
+        }
+        
+        .timer.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .timer-title {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        /* Memory timeline */
+        .memory-timeline {
+            width: 100%;
+            max-width: 800px;
+            padding: 30px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease, transform 2s ease;
+        }
+        
+        .memory-timeline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .memory-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%);
+        }
+        
+        .memory-item {
+            width: 100%;
+            margin-bottom: 60px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .memory-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .memory-content {
+            width: 80%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .memory-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        
+        .memory-date {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff6b8b;
+            text-shadow: 0 0 10px rgba(255, 107, 139, 0.5);
+        }
+        
+        .memory-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        /* Photo gallery */
+        .gallery {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease, transform 2s ease;
+        }
+        
+        .gallery.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transform: rotate(0deg) scale(1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            opacity: 0;
+            animation: fade-in 1s ease forwards;
+            animation-delay: calc(var(--i) * 0.2s);
+        }
+        
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gallery-item:hover {
+            transform: rotate(calc(var(--rotate) * 1deg)) scale(1.05);
+            z-index: 10;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: filter 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            filter: brightness(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+            font-size: 1rem;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Video section */
+        .video-section {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease, transform 2s ease;
+            text-align: center;
+        }
+        
+        .video-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin-top: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background-color: #000;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Final message */
+        .final-message {
+            font-family: 'Mitr', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 20px;
+            color: #f7f7f7;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease, transform 2s ease;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+        
+        .final-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .final-emoji {
+            font-size: 4rem;
+            margin-top: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        
+        /* Background effects */
+        .bg-particle {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            filter: blur(3px);
+            animation: float-particle 15s linear infinite;
+        }
+        
+        @keyframes float-particle {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+        
+        /* Parallax effect */
+        .parallax {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+            background-image: radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0d1b2a 100%);
+            transform: translateZ(-10px) scale(2);
+            transition: transform 0.5s ease;
+        }
+        
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 2s;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .scroll-indicator.visible {
+            opacity: 0.7;
+            animation: fade-pulse 2s ease infinite;
+        }
+        
+        .scroll-arrow {
+            font-size: 2rem;
+            animation: scroll-bounce 2s infinite;
+        }
+        
+        @keyframes scroll-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        
+        @keyframes fade-pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.3; }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .cinematic-text {
+                font-size: 1.8rem;
+            }
+            
+            .timer {
+                font-size: 1.8rem;
+            }
+            
+            .memory-content {
+                width: 90%;
+            }
+            
+            .memory-date {
+                font-size: 1.3rem;
+            }
+            
+            .memory-description {
+                font-size: 1rem;
+            }
+            
+            .final-message {
+                font-size: 2rem;
+            }
+            
+            .glitch-text {
+                font-size: 8vw;
+            }
+        }
+        
+        /* ส่วนเพิ่มเติมสำหรับเอฟเฟกต์ซึ่งๆ แบบในหนัง */
+        .typing-effect {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            max-width: 0;
+            animation: typing 4s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes typing {
+            from { max-width: 0 }
+            to { max-width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #fff }
+        }
+        
+        /* เอฟเฟกต์เลื่อนภาพแบบซีน */
+        .scene-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 2001;
+            transform: translateY(100%);
+            transition: transform 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        
+        .scene-transition.active {
+            transform: translateY(0);
+        }
+        
+        .scene-transition.exit {
+            transform: translateY(-100%);
+        }
+        
+        /* เอฟเฟกต์น้ำหยดลงบนหน้าจอ */
+        .water-drop {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.8), rgba(255,255,255,0.1) 60%);
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0;
+            z-index: 1001;
+            pointer-events: none;
+        }
+        
+        @keyframes water-ripple {
+            0% { transform: scale(0); opacity: 0.7; }
+            50% { opacity: 0.4; }
+            100% { transform: scale(6); opacity: 0; }
+        }
+        
+        /* เอฟเฟกต์กระพริบแฟลช */
+        .flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 2002;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes flash-effect {
+            0%, 100% { opacity: 0; }
+            5% { opacity: 0.8; }
+        }
+        
+        /* ส่วนของปุ่มเล่นวิดีโอ */
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .video-play-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-play-button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 0 15px 25px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 7px;
+        }
+        
+        /* เอฟเฟกต์แสงวิบวับ */
+        .light-flicker {
+            animation: light-flicker 5s linear infinite;
+        }
+        
+        @keyframes light-flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.3; text-shadow: none; }
+        }
+        
+        /* เอฟเฟกต์ภาพแตก */
+        .distort-effect {
+            animation: distort 0.3s infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes distort {
+            0%, 100% { transform: skew(0deg, 0deg); }
+            25% { transform: skew(2deg, 1deg); }
+            50% { transform: skew(-1deg, -1deg); }
+            75% { transform: skew(1deg, 2deg); }
+        }
+        
+        /* เอฟเฟกต์หัวใจเต้น */
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* เอฟเฟกต์ดาวเต็มท้องฟ้า */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* เอฟเฟกต์ฝนตกจริงๆ */
+        .rain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+            pointer-events: none;
+            z-index: 997;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+        
+        .rain-overlay.visible {
+            opacity: 1;
+        }
+        
+        /* นาฬิกานับถอยหลัง */
+        .countdown {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.8rem;
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            color: #ff6b8b;
+            text-shadow: 0 0 10px rgba(255, 107, 139, 0.7);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            margin-top: 5px;
+        }
+        
+        /* ส่วนปรับวีดีโอให้เหมือนเล่นใน VHS เก่า */
+        .vhs-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .vhs-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(50, 226, 255, 0.1) 50%, rgba(255, 0, 128, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 1002;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+        
+        /* เอฟเฟกต์ภาพโพลารอยด์ */
+        .polaroid {
+            background: #fff;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+            transform: rotate(var(--rotate));
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+            transform: rotate(var(--rotate)) scale(1.05);
+        }
+        
+        .polaroid-caption {
+            font-family: 'Sarabun', cursive;
+            color: #333;
+            text-align: center;
+            margin-top: 12px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ชั้นใส่เอฟเฟกต์ Vignette -->
+    <div class="vignette"></div>
+    
+    <!-- เอฟเฟกต์ Glitch ตอนเริ่มต้น -->
+    <div class="glitch-container">
+        <div class="tv-effect"></div>
+        <div class="glitch-text">ความทรงจำ</div>
+    </div>
+    
+    <!-- การเปลี่ยนฉาก -->
+    <div class="scene-transition"></div>
+    
+    <!-- เอฟเฟกต์แฟลช -->
+    <div class="flash"></div>
+    
+    <!-- คอนเทนเนอร์หลัก -->
+    <div class="container">
+        <!-- เอฟเฟกต์ฝนตก -->
+        <div class="rain"></div>
+        <div class="rain-overlay"></div>
+        
+        <!-- เอฟเฟกต์ท้องฟ้ามีดาว -->
+        <div class="stars"></div>
+        
+        <!-- Section 1: คำทักทาย -->
+        <section class="section" id="greeting">
+            <div class="parallax">
+                <div class="parallax-bg"></div>
+            </div>
+            
+            <div class="cinematic-text">
+                <span class="light-flicker">โย่ววเป็นอย่างไงบ้างง?</span>
+            </div>
+            
+            <div class="cinematic-text">
+                <span class="typing-effect" style="animation-delay: 4s;">สุขสันวันต์ครบรอบ 3 เดือนที่ไม่มีแกนะ</span>
+            </div>
+            
+            <div class="cinematic-text">
+                <span class="typing-effect" style="animation-delay: 8s;">เห้ออ มันน่าคิดถึงแหะ</span>
+            </div>
+            
+            <div class="cinematic-text">
+                <span class="typing-effect" style="animation-delay: 12s;">พี่อยากจะมาขอโทษแกหลายๆเรื่องเลย</span>
+            </div>
+        </section>
+        
+        <!-- Section 2: นับเวลา -->
+        <section class="section" id="timer-section">
+            <div class="timer">
+                <div class="timer-title">เวลาที่เรารู้จักกัน</div>
+                <div id="time-counter">00:00:00:00</div>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">วัน</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">ชั่วโมง</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">นาที</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">วินาที</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: ไทม์ไลน์ความทรงจำ -->
+        <section class="section" id="memories">
+            <h2 class="cinematic-text">ความทรงจำของเรา</h2>
+            
+            <div class="memory-timeline">
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date">8 ตุลาคม 2566</div>
+                        <div class="memory-description">วันที่พี่คุยกะใบหลิวครั้งแรกเลยย ตอนนั้นพี่กว่าจะทักไปได้คือนานสุดๆ</div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date">6 ธันวาคม 2566</div>
+                        <div class="memory-description">เป็นครั้งแรกเลยนะเว้ยยที่พี่ซื้อชาไทยไปให้ กว่าจะเอาไปให้ได้แหนะลำบากสุดๆ</div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date">5 มกราคม 2567</div>
+                        <div class="memory-description">พี่ซื้อของให้ใบหลิวดั่วว เซ็ทกำไรให้ใบหลิวเลยยย</div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date">15 กุมภาพันธ์ 2567</div>
+                        <div class="memory-description">ให้น้อนนกระต่ายไปแหนะ ไม่รู้เป็นไงบ้างเนี่ยยย</div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date">1 มกราคม 2568</div>
+                        <div class="memory-description">วันนี้เป็นวันที่มีอะไรหลายๆอย่างเกิดขึ้นเยอะมากเลยนะ วันที่พี่เคยคบกะใบหลิว TT</div>
+                    </div>
+                </div>
+                
+                <div class="memory-item">
+                    <div class="memory-content">
+                        <div class="memory-date heartbeat">วันสุดท้าย</div>
+                        <div class="memory-description">พี่ขอโทษนะ อะไรหลายๆอย่างเลยที่พี่ทำลงไป บางทีพี่ทำอะไรให้ไม่พอใจบ้าง งอแงไปบ้าง ฟังพี่บ่นอะไรไปบ้างต้องขอโทษด้วย</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: แกลลอรี่รูปภาพ -->
+        <section class="section" id="gallery-section">
+            <h2 class="cinematic-text">ภาพความทรงจำของเรา</h2>
+            
+            <div class="gallery">
+                <!-- ใช้รูปจำลองแทนรูปจริงด้วยเหตุผลความเป็นส่วนตัว -->
+                <div class="gallery-item polaroid" style="--i:1; --rotate:-3">
+                    <img src="src/4.jpg" alt="ความทรงจำ 1">
+                    <div class="polaroid-caption">รูปคู่พี่กะใบหลิวตอนปัจฉิมแหนะ</div>
+                </div>
+                
+                <div class="gallery-item polaroid" style="--i:2; --rotate:2">
+                    <img src="src/2.jpg" alt="ความทรงจำ 2">
+                    <div class="polaroid-caption">รูปสามคนพี่ใบหลิวพี่ตอง</div>
+                </div>
+                
+                <div class="gallery-item polaroid" style="--i:3; --rotate:-1">
+                    <img src="src/3.jpg" alt="ความทรงจำ 3">
+                    <div class="polaroid-caption">รูปที่ใบหลิวส่งมาให้แหนะ</div>
+                </div>
+                
+                <div class="gallery-item polaroid" style="--i:4; --rotate:3">
+                    <img src="src/6.jpg" alt="ความทรงจำ 4">
+                    <div class="polaroid-caption">กำไลจากใบหลิว</div>
+                </div>
+                
+                <div class="gallery-item polaroid" style="--i:5; --rotate:-2">
+                    <img src="src/5.jpg" alt="ความทรงจำ 5">
+                    <div class="polaroid-caption">ดอกไม้กะสติกเกอร์ที่ใบหลิวให้</div>
+                </div>
+                
+                <div class="gallery-item polaroid" style="--i:6; --rotate:1">
+                    <img src="src/3.jpg" alt="ความทรงจำ 6">
+                    <div class="polaroid-caption">รูปคนที่ยิ้มน่ารักที่สุดในโลก</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: วิดีโอ -->
+        <section class="section" id="video-section">
+            <div class="video-section">
+                <h2 class="cinematic-text">มีอะไรอยากจะบอก</h2>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="video-play-button" id="video-play"></div>
+                    </div>
+                </div>
+                
+                <!-- เพิ่ม scene-transition element หากไม่มี -->
+                <div class="scene-transition"></div>
+            </div>
+        </section>
+        
+        <!-- Section 6: ข้อความสุดท้าย -->
+        <section class="section" id="final">
+            <div class="final-message">
+                <span class="distort-effect">ขอให้โชคดีคับผม ยิ้มเยอะๆ</span><br>
+                <span style="font-size: 0.8em;">พี่ยังอยากคุยกะใบหลิวอยู่ตลอดเลยนะ แต่พี่รู้ว่ามันเป็นไปไม่ได้แล้ว มันแอบแปกแหะที่ไม่มีเด็กมาคอยบ่นนู้นนี่นั้นให้ฟัง พี่ขอให้แกเลือกเดินในเส้นทางของตนเองและประสบความสำเร็จน้าา พี่จะคอยดูแกอยู่ห่างๆตลอดนะ อยู่ๆกะเพื่อนๆ ครูนิว พ่อแม่ อยู่กะตัวเองให้มีความสูขมากๆ ไว้เจอกันใหม่คับ</span><br>
+                <div class="final-emoji">👋</div>
+            </div>
+        </section>
+        
+        <!-- ตัวชี้บอกให้เลื่อนลง -->
+        <div class="scroll-indicator">
+            <div>เลื่อนลงเพื่อดูต่อ</div>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // เริ่มการทำงานหลังจากโหลดหน้าเว็บเสร็จ
+            setTimeout(function() {
+                document.querySelector('.glitch-container').style.opacity = '0';
+                setTimeout(function() {
+                    document.querySelector('.glitch-container').style.display = 'none';
+                    startExperience();
+                }, 1000);
+            }, 5000); // แสดงหน้าเริ่มต้น 5 วินาที
+            
+            // ฟังก์ชันเริ่มประสบการณ์
+            function startExperience() {
+                console.log("Starting experience");
+
+                const container = document.querySelector('.container');
+                container.style.opacity = '1';
+                
+                // แสดงตัวชี้บอกให้เลื่อนลง
+                setTimeout(function() {
+                    document.querySelector('.scroll-indicator').classList.add('visible');
+                }, 2000);
+                
+                // สร้างเอฟเฟกต์ฝนตก
+                createRain();
+                
+                // สร้างดาวบนท้องฟ้า
+                createStars();
+                
+                // เริ่มนับเวลา
+                startTimeCounter();
+                
+                // ตรวจจับการเลื่อนเพจเพื่อแสดงเนื้อหา
+                checkScroll();
+                
+                // สร้างแบบสุ่มเอฟเฟกต์น้ำหยด
+                setInterval(createWaterDrop, 3000);
+                
+                // แสดงเอฟเฟกต์แฟลชแบบสุ่ม
+                setInterval(triggerFlash, 8000);
+            }
+            
+            // ฟังก์ชันสร้างฝนตก
+            function createRain() {
+                const rain = document.querySelector('.rain');
+                rain.classList.add('visible');
+                document.querySelector('.rain-overlay').classList.add('visible');
+                
+                for(let i = 0; i < 150; i++) {
+                    const drop = document.createElement('div');
+                    drop.classList.add('drop');
+                    
+                    const leftPos = Math.floor(Math.random() * window.innerWidth);
+                    const delay = Math.random() * 2;
+                    const duration = Math.random() * 1 + 0.5;
+                    
+                    drop.style.left = leftPos + 'px';
+                    drop.style.animationDelay = delay + 's';
+                    drop.style.animationDuration = duration + 's';
+                    
+                    rain.appendChild(drop);
+                }
+            }
+            
+            // ฟังก์ชันสร้างดาว
+            function createStars() {
+                const stars = document.querySelector('.stars');
+                
+                for(let i = 0; i < 200; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    const size = Math.random() * 2;
+                    const leftPos = Math.floor(Math.random() * window.innerWidth);
+                    const topPos = Math.floor(Math.random() * window.innerHeight);
+                    const animationDuration = Math.random() * 3 + 1;
+                    const animationDelay = Math.random() * 3;
+                    
+                    star.style.width = size + 'px';
+                    star.style.height = size + 'px';
+                    star.style.left = leftPos + 'px';
+                    star.style.top = topPos + 'px';
+                    star.style.animationDuration = animationDuration + 's';
+                    star.style.animationDelay = animationDelay + 's';
+                    
+                    stars.appendChild(star);
+                }
+            }
+            
+            // ฟังก์ชันนับเวลา
+            function startTimeCounter() {
+                // ตั้งวันที่เริ่มต้น (8 ตุลาคม)
+                const startDate = new Date('2023-10-08T00:00:00');
+                const timeCounter = document.getElementById('time-counter');
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                
+                function updateTimer() {
+                    const now = new Date();
+                    const diff = now - startDate;
+                    
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    
+                    timeCounter.textContent = `${days}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    daysEl.textContent = days;
+                    hoursEl.textContent = hours;
+                    minutesEl.textContent = minutes;
+                    secondsEl.textContent = seconds;
+                }
+                
+                // อัพเดทนาฬิกาทุกวินาที
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            }
+            
+            // ฟังก์ชันตรวจจับการเลื่อนเพจ
+            function checkScroll() {
+                // เลือกองค์ประกอบที่ต้องการ
+                const cinematicTexts = document.querySelectorAll('.cinematic-text');
+                const memoryItems = document.querySelectorAll('.memory-item');
+                const gallery = document.querySelector('.gallery');
+                const timer = document.querySelector('.timer');
+                const videoSection = document.querySelector('.video-section');
+                const finalMessage = document.querySelector('.final-message');
+                const scrollIndicator = document.querySelector('.scroll-indicator');
+                
+                function showElementsOnScroll() {
+                    const scrollY = window.scrollY;
+                    const windowHeight = window.innerHeight;
+                    
+                    // แสดงข้อความตามการเลื่อน
+                    cinematicTexts.forEach(text => {
+                        const rect = text.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.8) {
+                            text.classList.add('visible');
+                        }
+                    });
+                    
+                    // แสดงไอเทมความทรงจำ
+                    memoryItems.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.85) {
+                            item.classList.add('visible');
+                        }
+                    });
+                    
+                    // แสดงแกลลอรี่
+                    if(gallery) {
+                        const rect = gallery.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.8) {
+                            gallery.classList.add('visible');
+                        }
+                    }
+                    
+                    // แสดงนาฬิกา
+                    if(timer) {
+                        const rect = timer.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.8) {
+                            timer.classList.add('visible');
+                        }
+                    }
+                    
+                    // แสดงส่วนวิดีโอ
+                    if(videoSection) {
+                        const rect = videoSection.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.8) {
+                            videoSection.classList.add('visible');
+                        }
+                    }
+                    
+                    // แสดงข้อความสุดท้าย
+                    if(finalMessage) {
+                        const rect = finalMessage.getBoundingClientRect();
+                        if(rect.top < windowHeight * 0.8) {
+                            finalMessage.classList.add('visible');
+                        }
+                    }
+                    
+                    // ซ่อนตัวชี้บอกให้เลื่อนลงเมื่อเลื่อนลงมาแล้ว
+                    if(scrollIndicator) {
+                        if(scrollY > 200) {
+                            scrollIndicator.classList.remove('visible');
+                        } else {
+                            scrollIndicator.classList.add('visible');
+                        }
+                    }
+                }
+                
+                // เพิ่มการตรวจสอบว่า DOMContentLoaded แล้วหรือยัง
+                if(document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        window.addEventListener('scroll', showElementsOnScroll);
+                        // เรียกครั้งแรกเพื่อแสดงส่วนที่มองเห็นได้ทันที
+                        showElementsOnScroll();
+                    });
+                } else {
+                    window.addEventListener('scroll', showElementsOnScroll);
+                    // เรียกครั้งแรกเพื่อแสดงส่วนที่มองเห็นได้ทันที
+                    showElementsOnScroll();
+                }
+            }
+
+            // ฟังก์ชันตรวจจับองค์ประกอบที่ปรากฏบนหน้าจอ
+            function setupVisibilityObserver() {
+                // ตั้งค่า options สำหรับ observer
+                const options = {
+                    root: null, // ใช้ viewport เป็นพื้นที่อ้างอิง
+                    rootMargin: '0px',
+                    threshold: 0.1 // แสดงเมื่อ 10% ขององค์ประกอบปรากฏในหน้าจอ
+                };
+                
+                // สร้าง observer
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        // เมื่อองค์ประกอบปรากฏในหน้าจอ
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // หยุดสังเกตองค์ประกอบนี้หลังจากที่มันแสดงแล้ว (optional)
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                }, options);
+                
+                // เลือกองค์ประกอบทั้งหมดที่ต้องการสังเกต
+                const elementsToObserve = document.querySelectorAll(
+                    '.cinematic-text, .memory-item, .gallery, .timer, .video-section, .final-message,  .memory-timeline'
+                );
+                
+                // เพิ่มองค์ประกอบแต่ละอันเข้าไปใน observer
+                elementsToObserve.forEach(element => {
+                    if (element) {
+                        observer.observe(element);
+                    }
+                });
+                
+                // จัดการกับ scroll indicator แยกต่างหาก
+                const scrollIndicator = document.querySelector('.scroll-indicator');
+                if (scrollIndicator) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 200) {
+                            scrollIndicator.classList.remove('visible');
+                        } else {
+                            scrollIndicator.classList.add('visible');
+                        }
+                    });
+                    
+                    // แสดง scroll indicator เริ่มต้น
+                    scrollIndicator.classList.add('visible');
+                }
+            }
+
+            // รอให้ DOM โหลดเสร็จก่อนเรียกใช้ฟังก์ชัน
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupVisibilityObserver);
+            } else {
+                setupVisibilityObserver();
+            }
+            
+            // ฟังก์ชันสร้างหยดน้ำ
+            function createWaterDrop() {
+                const waterDrop = document.createElement('div');
+                waterDrop.classList.add('water-drop');
+                
+                const leftPos = Math.floor(Math.random() * window.innerWidth);
+                const topPos = Math.floor(Math.random() * window.innerHeight);
+                
+                waterDrop.style.left = leftPos + 'px';
+                waterDrop.style.top = topPos + 'px';
+                
+                document.body.appendChild(waterDrop);
+                
+                setTimeout(function() {
+                    waterDrop.style.transform = 'scale(1)';
+                    waterDrop.style.opacity = '0.7';
+                    waterDrop.style.animation = 'water-ripple 3s forwards';
+                    
+                    setTimeout(function() {
+                        waterDrop.remove();
+                    }, 3000);
+                }, 10);
+            }
+            
+            // ฟังก์ชันแฟลชแบบสุ่ม
+            function triggerFlash() {
+                if(Math.random() > 0.7) { // 30% โอกาสที่จะเกิดแฟลช
+                    const flash = document.querySelector('.flash');
+                    flash.style.animation = 'flash-effect 1s';
+                    
+                    setTimeout(function() {
+                        flash.style.animation = 'none';
+                    }, 1000);
+                }
+            }
+            
+            // เพิ่มการเล่นวิดีโอเมื่อคลิกปุ่ม
+            document.getElementById('video-play').addEventListener('click', function() {
+                const videoContainer = document.querySelector('.video-placeholder');
+                
+                // สร้างวิดีโอ
+                const video = document.createElement('video');
+                video.controls = true;
+                video.autoplay = true;
+                video.width = '100%';
+                video.height = '100%';
+                video.style.display = 'block'; // ให้แน่ใจว่าวิดีโอแสดงผล
+                
+                // ตรวจสอบเส้นทางไฟล์ให้ถูกต้อง
+                video.src = 'src/Video.mp4'; // ตรวจสอบว่าเส้นทางนี้ถูกต้อง
+                
+                // เพิ่ม event listener เพื่อตรวจสอบการโหลดวิดีโอ
+                video.addEventListener('loadeddata', function() {
+                    console.log('วิดีโอโหลดสำเร็จ');
+                });
+                
+                // เพิ่ม event listener เพื่อตรวจสอบข้อผิดพลาด
+                video.addEventListener('error', function() {
+                    console.error('เกิดข้อผิดพลาดในการโหลดวิดีโอ:', video.error);
+                    videoContainer.innerHTML = '<p>ไม่สามารถโหลดวิดีโอได้ กรุณาตรวจสอบเส้นทางไฟล์</p>';
+                });
+                
+                // แสดงวิดีโอ
+                videoContainer.innerHTML = '';
+                videoContainer.appendChild(video);
+                
+                // เพิ่ม VHS effect หลังจากเพิ่มวิดีโอแล้ว
+                const vhsEffect = document.createElement('div');
+                vhsEffect.classList.add('vhs-effect');
+                videoContainer.appendChild(vhsEffect);
+                
+                // เพิ่ม scene transition
+                const sceneTransition = document.querySelector('.scene-transition');
+                if (sceneTransition) {
+                    sceneTransition.classList.add('active');
+                    
+                    setTimeout(function() {
+                        sceneTransition.classList.remove('active');
+                        sceneTransition.classList.add('exit');
+                        
+                        setTimeout(function() {
+                            sceneTransition.classList.remove('exit');
+                        }, 1500);
+                    }, 1500);
+                } else {
+                    console.warn('ไม่พบ element .scene-transition');
+                }
+            });
+            
+            // เพิ่ม Parallax effect
+            window.addEventListener('scroll', function() {
+                const parallaxElements = document.querySelectorAll('.parallax-bg');
+                const scrollY = window.scrollY;
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5; // ความเร็วในการเลื่อน
+                    element.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+            });
+            
+            // เพิ่มปุ่มเปิดเพลงพื้นหลัง
+            const musicButton = document.createElement('div');
+            musicButton.classList.add('music-button');
+            musicButton.innerHTML = '<i class="fas fa-music"></i>';
+            musicButton.style.position = 'fixed';
+            musicButton.style.top = '20px';
+            musicButton.style.right = '20px';
+            musicButton.style.width = '40px';
+            musicButton.style.height = '40px';
+            musicButton.style.borderRadius = '50%';
+            musicButton.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            musicButton.style.display = 'flex';
+            musicButton.style.alignItems = 'center';
+            musicButton.style.justifyContent = 'center';
+            musicButton.style.cursor = 'pointer';
+            musicButton.style.zIndex = '2000';
+            musicButton.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
+            musicButton.style.transition = 'all 0.3s ease';
+
+            document.body.appendChild(musicButton);
+
+            // สร้างเพลงพื้นหลัง
+            const bgMusic = document.createElement('audio');
+            bgMusic.loop = true;
+            // แทนที่ด้วยลิงก์เพลงของคุณ
+            bgMusic.src = 'src/Song.mp3'; // เปลี่ยนเป็นลิงก์เพลงของคุณ
+            bgMusic.volume = 0.2;
+            bgMusic.muted = false; // ปรับค่านี้เพื่อพยายามเล่นอัตโนมัติ
+            // เพิ่ม attributes สำหรับการพยายามเล่นอัตโนมัติ
+            bgMusic.setAttribute('autoplay', '');
+            bgMusic.setAttribute('playsinline', '');
+
+            let musicPlaying = false;
+
+            // ฟังก์ชันสำหรับการเล่นเพลง
+            function playMusic() {
+                const playPromise = bgMusic.play();
+                
+                // จัดการกับ Promise เพื่อดักจับข้อผิดพลาดที่อาจเกิดขึ้น
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // เล่นสำเร็จ
+                        musicPlaying = true;
+                        musicButton.style.backgroundColor = 'rgba(255, 107, 139, 0.4)';
+                        musicButton.style.boxShadow = '0 0 15px rgba(255, 107, 139, 0.5)';
+                        console.log('เล่นเพลงอัตโนมัติสำเร็จ');
+                    }).catch(error => {
+                        // เล่นไม่สำเร็จ เนื่องจากนโยบายของเบราว์เซอร์
+                        musicPlaying = false;
+                        console.log('ไม่สามารถเล่นเพลงอัตโนมัติได้:', error);
+                        // อาจแสดงข้อความแนะนำให้ผู้ใช้คลิกเพื่อเล่นเพลง
+                        showPlayMusicNotification();
+                    });
+                }
+            }
+
+            // แสดงแจ้งเตือนให้ผู้ใช้กดเพื่อเล่นเพลง (อาจเพิ่มตามต้องการ)
+            function showPlayMusicNotification() {
+                const notification = document.createElement('div');
+                notification.textContent = 'คลิกที่ใดก็ได้บนหน้าเว็บเพื่อเล่นเพลง';
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.padding = '10px 20px';
+                notification.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                notification.style.color = 'white';
+                notification.style.borderRadius = '5px';
+                notification.style.zIndex = '2001';
+                notification.style.transition = 'opacity 0.5s';
+                
+                document.body.appendChild(notification);
+                
+                // ซ่อนการแจ้งเตือนหลังจาก 5 วินาที
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 500);
+                }, 5000);
+            }
+
+            // พยายามเล่นเพลงเมื่อโหลดหน้าเว็บ
+            window.addEventListener('load', function() {
+                playMusic();
+            });
+
+            // เพิ่ม event listener สำหรับการโต้ตอบครั้งแรกของผู้ใช้
+            document.addEventListener('click', function firstInteraction() {
+                if (!musicPlaying) {
+                    playMusic();
+                }
+                // ลบ event listener นี้หลังจากใช้งานครั้งแรก
+                document.removeEventListener('click', firstInteraction);
+            }, { once: true });
+
+            // ปุ่มควบคุมเพลง
+            musicButton.addEventListener('click', function() {
+                if (!musicPlaying) {
+                    playMusic();
+                } else {
+                    bgMusic.pause();
+                    musicPlaying = false;
+                    musicButton.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                    musicButton.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
+                }
+            });
+
+            // เพิ่มเอฟเฟกต์เปลี่ยนฉากด้วยการคลิก
+            document.addEventListener('click', function(e) {
+                // ทำงานเฉพาะเมื่อคลิกนอกปุ่มและองค์ประกอบอื่นๆ
+                if(e.target.classList.contains('container') || e.target.tagName === 'SECTION') {
+                    const randomChance = Math.random();
+                    if(randomChance > 0.8) { // 20% โอกาสที่จะเกิดเอฟเฟกต์เมื่อคลิก
+                        const flash = document.querySelector('.flash');
+                        flash.style.animation = 'flash-effect 0.5s';
+                        
+                        setTimeout(function() {
+                            flash.style.animation = 'none';
+                        }, 500);
+                    }
+                }
+            });
+            
+            // เพิ่มเอฟเฟกต์ตัวอักษรเปลี่ยนสี
+            const distortTexts = document.querySelectorAll('.distort-effect');
+            
+            function randomColorChange() {
+                distortTexts.forEach(text => {
+                    if(Math.random() > 0.9) { // 10% โอกาสที่จะเปลี่ยนสี
+                        const randomColor = `hsl(${Math.random() * 360}, 70%, 70%)`;
+                        text.style.color = randomColor;
+                        text.style.textShadow = `0 0 10px ${randomColor}`;
+                        
+                        setTimeout(function() {
+                            text.style.color = '';
+                            text.style.textShadow = '';
+                        }, 500);
+                    }
+                });
+                
+                requestAnimationFrame(randomColorChange);
+            }
+            
+            randomColorChange();
+            
+            // เพิ่มเอฟเฟกต์ภาพเบลอเมื่อเลื่อนอย่างรวดเร็ว
+            let lastScrollTop = 0;
+            let scrollSpeed = 0;
+            
+            window.addEventListener('scroll', function() {
+                const st = window.scrollY;
+                scrollSpeed = Math.abs(st - lastScrollTop);
+                lastScrollTop = st;
+                
+                if(scrollSpeed > 50) { // ถ้าเลื่อนเร็วมาก
+                    document.body.classList.add('motion-blur');
+                    
+                    clearTimeout(window.scrollTimer);
+                    window.scrollTimer = setTimeout(function() {
+                        document.body.classList.remove('motion-blur');
+                    }, 200);
+                }
+            });
+            
+            // เพิ่ม style สำหรับ motion blur
+            const style = document.createElement('style');
+            style.textContent = `
+                .motion-blur {
+                    filter: blur(3px);
+                    transition: filter 0.2s ease;
+                }
+                
+                /* สไตล์สำหรับเอฟเฟกต์สะท้อนบนปุ่มและรูปภาพ */
+                .gallery-item img, .video-play-button {
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                .gallery-item img::after, .video-play-button::after {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+                    transform: rotate(30deg);
+                    animation: reflection 10s linear infinite;
+                    pointer-events: none;
+                }
+                
+                @keyframes reflection {
+                    0% { transform: rotate(30deg) translateX(-100%); }
+                    100% { transform: rotate(30deg) translateX(100%); }
+                }
+                
+                /* เพิ่มเอฟเฟกต์ซูมภาพเมื่อโฮเวอร์ */
+                .gallery-item img {
+                    transition: transform 0.5s ease;
+                }
+                
+                .gallery-item:hover img {
+                    transform: scale(1.05);
+                }
+                
+                /* เพิ่มเอฟเฟกต์เส้นเวลา */
+                .memory-timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    transform: translateX(-50%);
+                    width: 4px;
+                    height: 0;
+                    background: linear-gradient(to bottom, rgba(255,107,139,0.1), rgba(255,107,139,0.7), rgba(255,107,139,0.1));
+                    animation: timeline-grow 3s ease forwards;
+                    border-radius: 2px;
+                }
+                
+                @keyframes timeline-grow {
+                    from { height: 0; }
+                    to { height: 100%; }
+                }
+                
+                /* เพิ่มเอฟเฟกต์ไฮไลท์ความทรงจำเมื่อโฮเวอร์ */
+                .memory-item {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .memory-item:hover {
+                    transform: translateY(-5px) scale(1.03);
+                    box-shadow: 0 10px 30px rgba(255,107,139,0.2);
+                }
+                
+                /* เพิ่มเอฟเฟกต์ดวงดาวเคลื่อนที่ */
+                .shooting-star {
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background-color: white;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: 0;
+                    z-index: 1000;
+                }
+            `;
+            
+            document.head.appendChild(style);
+            
+            // เพิ่มฟังก์ชันสร้างดาวตก
+            function createShootingStar() {
+                if(Math.random() > 0.9) { // 10% โอกาสที่จะเกิด
+                    const star = document.createElement('div');
+                    star.classList.add('shooting-star');
+                    
+                    const startX = Math.random() * window.innerWidth;
+                    const startY = 0;
+                    const angle = Math.random() * 45 - 22.5; // มุม -22.5 ถึง 22.5 องศา
+                    
+                    star.style.left = startX + 'px';
+                    star.style.top = startY + 'px';
+                    
+                    document.body.appendChild(star);
+                    
+                    // สร้าง keyframe animation เฉพาะสำหรับดาวนี้
+                    const distance = Math.max(window.innerWidth, window.innerHeight) * 1.5;
+                    const duration = 1 + Math.random() * 1.5;
+                    
+                    const radians = angle * Math.PI / 180;
+                    const endX = startX + Math.sin(radians) * distance;
+                    const endY = startY + Math.cos(radians) * distance;
+                    
+                    star.animate([
+                        { left: startX + 'px', top: startY + 'px', opacity: 0 },
+                        { opacity: 1, offset: 0.1 },
+                        { left: endX + 'px', top: endY + 'px', opacity: 0 }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                    });
+                    
+                    setTimeout(() => {
+                        star.remove();
+                    }, duration * 1000);
+                }
+                
+                // ดาวตกสร้างเรื่อยๆ
+                setTimeout(createShootingStar, 1000);
+            }
+            
+            createShootingStar();
+            
+            // เพิ่ม microinteractions
+            document.querySelectorAll('.memory-date').forEach(date => {
+                date.addEventListener('click', function() {
+                    this.classList.toggle('heartbeat');
+                });
+            });
+            
+            // เพิ่มเอฟเฟกต์ประกายดาวบนรูปภาพ
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('mouseover', function(e) {
+                    const sparkle = document.createElement('div');
+                    sparkle.classList.add('sparkle');
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.width = '20px';
+                    sparkle.style.height = '20px';
+                    sparkle.style.backgroundImage = 'radial-gradient(circle, white 0%, rgba(255,255,255,0) 70%)';
+                    sparkle.style.borderRadius = '50%';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.zIndex = '10';
+                    sparkle.style.opacity = '0';
+                    
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    sparkle.style.left = x + 'px';
+                    sparkle.style.top = y + 'px';
+                    
+                    this.parentNode.style.position = 'relative';
+                    this.parentNode.appendChild(sparkle);
+                    
+                    sparkle.animate([
+                        { transform: 'scale(0)', opacity: 0.8 },
+                        { transform: 'scale(1)', opacity: 0 }
+                    ], {
+                        duration: 800,
+                        easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                    });
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 800);
+                });
+            });
+            
+            // เพิ่มปุ่มส่งข้อความกลับ
+            const replyButton = document.createElement('div');
+            replyButton.classList.add('reply-button');
+            replyButton.textContent = 'ส่งข้อความกลับ';
+            replyButton.style.position = 'fixed';
+            replyButton.style.bottom = '20px';
+            replyButton.style.right = '20px';
+            replyButton.style.padding = '10px 20px';
+            replyButton.style.backgroundColor = 'rgba(255, 107, 139, 0.7)';
+            replyButton.style.color = 'white';
+            replyButton.style.borderRadius = '20px';
+            replyButton.style.cursor = 'pointer';
+            replyButton.style.zIndex = '2000';
+            replyButton.style.boxShadow = '0 0 15px rgba(255, 107, 139, 0.5)';
+            replyButton.style.transition = 'all 0.3s ease';
+
+            document.body.appendChild(replyButton);
+
+            // สร้าง hidden iframe สำหรับส่งฟอร์ม
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            // สร้างฟอร์ม
+            const commentForm = document.createElement('form');
+            commentForm.id = 'commentForm';
+            commentForm.method = 'POST';
+            commentForm.target = 'hidden_iframe';
+            commentForm.action = 'https://script.google.com/macros/s/AKfycbxhcl6btm3dqJSqY_UTCFqYx3uZlUmVXyMzZL6kfYED4kHxJeBJNwCW1rWmnGvHD9TgIQ/exec';
+
+            replyButton.addEventListener('click', function() {
+                // สร้างฟอร์มส่งข้อความ
+                const formContainer = document.createElement('div');
+                formContainer.classList.add('form-container');
+                formContainer.style.position = 'fixed';
+                formContainer.style.top = '50%';
+                formContainer.style.left = '50%';
+                formContainer.style.transform = 'translate(-50%, -50%)';
+                formContainer.style.width = '80%';
+                formContainer.style.maxWidth = '400px';
+                formContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                formContainer.style.borderRadius = '10px';
+                formContainer.style.padding = '20px';
+                formContainer.style.zIndex = '3000';
+                formContainer.style.boxShadow = '0 0 30px rgba(255, 107, 139, 0.5)';
+                
+                formContainer.innerHTML = `
+                    <div style="text-align: right; margin-bottom: 15px;">
+                        <span class="close-form" style="cursor: pointer; color: white; font-size: 1.5rem;">&times;</span>
+                    </div>
+                    <h3 style="color: white; margin-bottom: 15px; text-align: center;">ส่งข้อความกลับ</h3>
+                    <textarea id="commentInput" placeholder="พิมพ์ข้อความของคุณที่นี่..." style="width: 100%; height: 150px; background-color: rgba(255, 255, 255, 0.1); color: white; border: none; border-radius: 5px; padding: 10px; margin-bottom: 15px; resize: none;"></textarea>
+                    <button id="submitButton" style="width: 100%; background-color: rgba(255, 107, 139, 0.7); color: white; border: none; border-radius: 5px; padding: 10px; cursor: pointer;">ส่งข้อความ</button>
+                `;
+                
+                document.body.appendChild(formContainer);
+                
+                // เอฟเฟกต์เข้ามา
+                formContainer.animate([
+                    { transform: 'translate(-50%, -60%)', opacity: 0 },
+                    { transform: 'translate(-50%, -50%)', opacity: 1 }
+                ], {
+                    duration: 300,
+                    easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                });
+                
+                // ปิดฟอร์ม
+                formContainer.querySelector('.close-form').addEventListener('click', function() {
+                    formContainer.animate([
+                        { transform: 'translate(-50%, -50%)', opacity: 1 },
+                        { transform: 'translate(-50%, -60%)', opacity: 0 }
+                    ], {
+                        duration: 300,
+                        easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                    }).onfinish = function() {
+                        formContainer.remove();
+                    };
+                });
+                
+                // ส่งข้อความด้วยฟอร์ม
+                const submitButton = formContainer.querySelector('#submitButton');
+                const commentInput = formContainer.querySelector('#commentInput');
+                
+                submitButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const message = commentInput.value.trim();
+                    
+                    if (!message) {
+                        alert('กรุณากรอกข้อความก่อนส่งนะคะ');
+                        return;
+                    }
+
+                    // แสดงสถานะกำลังดำเนินการ
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'กำลังส่ง...';
+
+                    // เตรียมข้อมูลฟอร์ม
+                    commentForm.innerHTML = '';
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'comment';
+                    input.value = message;
+                    commentForm.appendChild(input);
+                    
+                    // ส่งฟอร์ม
+                    document.body.appendChild(commentForm);
+                    commentForm.submit();
+
+                    // รีเซ็ตฟอร์มหลังจากส่ง
+                    setTimeout(() => {
+                        // แสดงข้อความสำเร็จ
+                        
+                        // ปิดฟอร์ม
+                        formContainer.animate([
+                            { transform: 'translate(-50%, -50%)', opacity: 1 },
+                            { transform: 'translate(-50%, -60%)', opacity: 0 }
+                        ], {
+                            duration: 300,
+                            easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                        }).onfinish = function() {
+                            formContainer.remove();
+                        };
+                        
+                        document.body.removeChild(commentForm);
+                    }, 2000);
+                });
+            });
+            
+            // เพิ่มเอฟเฟกต์ลมพัดผ่านตัวอักษร
+            document.querySelectorAll('.cinematic-text').forEach(text => {''
+                // สร้างเอฟเฟกต์ลม
+                const wind = document.createElement('div');
+                wind.classList.add('text-wind');
+                wind.style.position = 'absolute';
+                wind.style.top = '0';
+                wind.style.left = '-100%';
+                wind.style.width = '100%';
+                wind.style.height = '100%';
+                wind.style.background = 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)';
+                wind.style.pointerEvents = 'none';
+                wind.style.transform = 'skewX(-20deg)';
+                
+                text.style.position = 'relative';
+                text.style.overflow = 'hidden';
+                text.appendChild(wind);
+                
+                // สร้าง animation
+                const windAnimation = wind.animate([
+                    { left: '-100%' },
+                    { left: '200%' }
+                ], {
+                    duration: 5000,
+                    delay: Math.random() * 10000,
+                    iterations: Infinity,
+                    easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)'
+                });
+            });
+            
+            // เพิ่มเอฟเฟกต์เคลื่อนไหวสำหรับ emoji
+            const finalEmoji = document.querySelector('.final-emoji');
+            if(finalEmoji) {
+                finalEmoji.style.transition = 'transform 0.5s ease';
+                finalEmoji.addEventListener('mouseover', function() {
+                    this.style.transform = 'rotate(20deg) scale(1.2)';
+                });
+                finalEmoji.addEventListener('mouseout', function() {
+                    this.style.transform = 'rotate(0) scale(1)';
+                });
+                
+                // สร้างเอฟเฟกต์โบกมือ
+                finalEmoji.animate([
+                    { transform: 'rotate(0)' },
+                    { transform: 'rotate(20deg)' },
+                    { transform: 'rotate(0)' }
+                ], {
+                    duration: 2000,
+                    iterations: Infinity
+                });
+            }
+            
+            // เพิ่มปุ่มสไลด์ภาพในแกลลอรี่
+            const gallery = document.querySelector('.gallery');
+            if(gallery) {
+                const nextBtn = document.createElement('div');
+                nextBtn.classList.add('gallery-nav', 'gallery-next');
+                nextBtn.innerHTML = '›';
+                nextBtn.style.position = 'absolute';
+                nextBtn.style.right = '10px';
+                nextBtn.style.top = '50%';
+                nextBtn.style.transform = 'translateY(-50%)';
+                nextBtn.style.fontSize = '3rem';
+                nextBtn.style.color = 'white';
+                nextBtn.style.cursor = 'pointer';
+                nextBtn.style.zIndex = '10';
+                nextBtn.style.textShadow = '0 0 10px rgba(0,0,0,0.5)';
+                
+                const prevBtn = document.createElement('div');
+                prevBtn.classList.add('gallery-nav', 'gallery-prev');
+                prevBtn.innerHTML = '‹';
+                prevBtn.style.position = 'absolute';
+                prevBtn.style.left = '10px';
+                prevBtn.style.top = '50%';
+                prevBtn.style.transform = 'translateY(-50%)';
+                prevBtn.style.fontSize = '3rem';
+                prevBtn.style.color = 'white';
+                prevBtn.style.cursor = 'pointer';
+                prevBtn.style.zIndex = '10';
+                prevBtn.style.textShadow = '0 0 10px rgba(0,0,0,0.5)';
+                
+                gallery.style.position = 'relative';
+                gallery.appendChild(nextBtn);
+                gallery.appendChild(prevBtn);
+                
+                // เพิ่มการเลื่อนภาพ
+                let currentSlide = 0;
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                
+                function showSlide(index) {
+                    // ซ่อนทุกรูป
+                    galleryItems.forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    
+                    // แสดงรูปปัจจุบัน
+                    const itemsToShow = window.innerWidth < 768 ? 1 : 3;
+                    for(let i = 0; i < itemsToShow; i++) {
+                        const slideIndex = (index + i) % galleryItems.length;
+                        if(galleryItems[slideIndex]) {
+                            galleryItems[slideIndex].style.display = 'block';
+                        }
+                    }
+                }
+                
+                nextBtn.addEventListener('click', function() {
+                    currentSlide = (currentSlide + 1) % galleryItems.length;
+                    showSlide(currentSlide);
+                });
+                
+                prevBtn.addEventListener('click', function() {
+                    currentSlide = (currentSlide - 1 + galleryItems.length) % galleryItems.length;
+                    showSlide(currentSlide);
+                });
+                
+                // แสดงสไลด์แรก
+                showSlide(currentSlide);
+                
+                // อัพเดทเมื่อเปลี่ยนขนาดหน้าจอ
+                window.addEventListener('resize', function() {
+                    showSlide(currentSlide);
+                });
+            }
+        });
+    </script>
+
+    <!-- เพิ่มความเข้ากันกับ Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

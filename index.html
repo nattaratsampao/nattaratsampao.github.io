@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message for Bailiw</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <!-- React Dependencies -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="lockScreen" class="lock-screen">
+        <div class="recipient">Cute person, Bailiw</div>
+        <div class="clock">
+            <span id="currentTime">00:00:00</span>
+        </div>
+        <div class="lock-message">Waiting for the perfect moment...</div>
+    </div>
+
+    <div id="glitchEffect" class="glitch-container">
+        <div class="scan-line"></div>
+        <div class="binary" id="binaryBackground"></div>
+        <div class="glitch-text">SYSTEM COMPROMISED</div>
+        <div class="hacktext">Accessing secure server... Retrieving data...</div>
+        <div class="hacktext" style="margin-top: 10px;">Redirecting to secure location...</div>
+    </div>
+
+    <div id="mainContent" class="main-content hidden">
+        <div class="swiper messageSwiper">
+            <div class="swiper-wrapper">
+                <!-- First slide - Original message -->
+                <div class="swiper-slide">
+                    <div class="message-card animate__animated">
+                        <div class="message-header">
+                            <div class="recipient-name">Bailiw</div>
+                            <div class="timestamp">08:10 AM, January 1, 2025</div>
+                        </div>
+                        <div class="message-body">
+                            <div id="userMessage" class="user-message"></div>
+                            <div class="swiper imageSwiper">
+                                <div class="swiper-wrapper" id="imageContainer">
+                                    <img src="pic/1.jpg">
+                                </div>
+                            </div>
+                            <div class="heart-container">
+                                <div class="heart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second slide - Interactive elements -->
+                <div class="swiper-slide">
+                    <div class="message-card animate__animated">
+                        <div class="interactive-container">
+                            <h2 class="glow-text">Tap the stars!</h2>
+                            <div class="star-field" id="starField"></div>
+                            <div class="floating-hearts" id="floatingHearts"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third slide - Choice system -->
+                <div class="swiper-slide">
+                    <div class="message-card animate__animated">
+                        <div class="choice-container">
+                            <h2 class="choice-title">Choose Your New Year's Surprise</h2>
+                            <div class="choice-grid">
+                                <div class="choice-card" onclick="handleChoice(0)">
+                                    <div class="choice-icon">❤️</div>
+                                    <h3>Secret</h3>
+                                    <p>ลองคลิกดูดิ ความลับอยากรู้ป่ะละ 🫣</p>
+                                </div>
+                                <div class="choice-card" onclick="handleChoice(1)">
+                                    <div class="choice-icon">🎁</div>
+                                    <h3>Special Surprise</h3>
+                                    <p>ลองคลิกดูดิ ของขวัญสุดเจ๋งง!!</p>
+                                </div>
+                                <div class="choice-card" onclick="handleChoice(2)">
+                                    <div class="choice-icon">🎵</div>
+                                    <h3>Musical Wish</h3>
+                                    <p>ลองคลิกดูดิ เพลงที่อยากให้ฟัง~</p>
+                                </div>
+                            </div>
+                            <div id="choiceResult" class="choice-result hidden">
+                                <div class="result-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fourth slide - Comment page -->
+                <div class="swiper-slide">
+                    <div class="message-card animate__animated">
+                        <div class="comment-container">
+                            <h2 class="comment-title">มีอะไรอยากบอกถึงพี่มั้ยครับ?</h2>
+                            <textarea id="commentInput" class="comment-input" placeholder="บอกมาได้เลนนะคับบ" rows="5"></textarea>
+                            <button id="submitComment" class="submit-comment">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="message-card animate__animated">
+                        <div class="particle-container">
+                            <canvas id="particleCanvas"></canvas>
+                            <div class="final-message">
+                                <h2>Happy New year na kubb! ✨</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Custom Navigation -->
+            <div class="custom-navigation">
+                <button class="nav-button prev-button">
+                    <span class="button-content">
+                        <span class="button-icon">←</span>
+                        <span class="button-text">Previous</span>
+                    </span>
+                </button>
+                <button class="nav-button next-button">
+                    <span class="button-content">
+                        <span class="button-text">Next</span>
+                        <span class="button-icon">→</span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Custom Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div id="testPanel" class="test-panel hiddenM">
+        <button onclick="toggleTestPanel()" class="test-toggle">🔧</button>
+        <div class="test-content">
+            <h3>Test Mode</h3>
+            <textarea id="customMessage" placeholder="Enter your message" rows="4"></textarea>
+            <input type="file" id="imageInput" accept="image/*" multiple>
+            <input type="datetime-local" id="testTime" step="1">
+            <button onclick="setCustomMessage()">Set Message</button>
+            <button onclick="setTestTime()">Set Time</button>
+            <button onclick="resetToRealTime()">Reset to Real Time</button>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('currentTime').textContent = timeString;
+        }
+
+        function handleChoice(index) {
+            const cards = document.querySelectorAll('.choice-card');
+            const result = document.getElementById('choiceResult');
+            const resultContent = result.querySelector('.result-content');
+            
+            cards.forEach(card => card.classList.remove('active'));
+            cards[index].classList.add('active');
+            
+            createChoiceSparkles(cards[index]);
+            
+            const messages = [
+                {
+                    icon: '❤️',
+                    text: "ความลับอ่อออ ไม่มีหรอกอิอิ ยิ้มเยอะๆน้าา คนเก่งของพี่ อะแห่มมจริงๆความลับก็คืออ... เวลาที่เปิดเว็บนี้ 8:10 ซึ่งก็คือ วันที่ 8 เดือน 10 ตรงกะวันที่พี่คุยกะใบหลิวครั้งแรก!!"
+                },
+                {
+                    icon: '🎁',
+                    text: "ของขวัญอืมมม ไม่มีอ่ะ ไปซื้อเองได้ม่ะเดี๋ยวให้ตังค์ >< ปีนี้พี่ขอมอบเว็บนี้ให้แทนนะคับบ พี่ไม่ได้อยู่ใกล้ใบหลิวอ่าา"
+                },
+                {
+                    icon: '🎵',
+                    text: "มีเพลงอยากแนะนำให้ฟังๆ~~ ระหว่างทาง (Good time) / บอกรัก / เธอยูนีค มันก็เพราะดีแหะๆ"
+                }
+            ];
+            
+            resultContent.innerHTML = `
+                <div class="result-icon">${messages[index].icon}</div>
+                <p class="result-message">${messages[index].text}</p>
+            `;
+            
+            result.classList.remove('hidden');
+            resultContent.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+        
+        function createChoiceSparkles(element) {
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'choice-sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 0.5 + 's';
+                element.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+
+        function createSparkles() {
+            const sparklesContainer = document.querySelector('.message-card');
+            for (let i = 0; i < 50; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        function createFireworks() {
+            const colors = ['#FF6F61', '#FFD700', '#FF1493', '#00FF00', '#1E90FF'];
+            setInterval(() => {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = Math.random() * window.innerWidth + 'px';
+                firework.style.top = Math.random() * window.innerHeight + 'px';
+                firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1000);
+            }, 300);
+        }
+
+        let useTestTime = false;
+        let testDateTime = null;
+
+        function toggleTestPanel() {
+            const content = document.querySelector('.test-content');
+            content.classList.toggle('active');
+        }
+
+        function setTestTime() {
+            const input = document.getElementById('testTime');
+            if (input.value) {
+                testDateTime = new Date(input.value);
+                useTestTime = true;
+                alert(`Test time set to: ${testDateTime.toLocaleString()}`);
+            }
+        }
+
+        function resetToRealTime() {
+            useTestTime = false;
+            testDateTime = null;
+            alert('Reset to real time');
+        }
+
+        function checkTime() {
+            const now = useTestTime ? testDateTime : new Date();
+            const targetTime = new Date('2025-02-01T13:12:00+07:00');
+            return now >= targetTime;
+        }
+
+        function initializeMessageSwiper() {
+            return new Swiper('.messageSwiper', {
+                effect: 'fade',
+                fadeEffect: { crossFade: true },
+                speed: 800,
+                allowTouchMove: true,
+                navigation: {
+                    nextEl: '.next-button',
+                    prevEl: '.prev-button'
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        const icons = ['✨', '⭐', '🎁', '💫', '🤩'];
+                        return `<div class="custom-bullet ${className}">
+                            <span class="bullet-icon">${icons[index]}</span>
+                            <span class="bullet-text">Page ${index + 1}</span>
+                        </div>`;
+                    }
+                }
+            });
+        }
+
+        function createStarField() {
+            const field = document.getElementById('starField');
+            for (let i = 0; i < 30; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.innerHTML = '⭐';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.onclick = createFloatingHeart;
+                field.appendChild(star);
+            }
+        }
+
+        function createFloatingHeart(e) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = `${e.clientX}px`;
+            heart.style.top = `${e.clientY}px`;
+            document.getElementById('floatingHearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 2000);
+        }
+
+        function showMainContent() {
+            document.getElementById('lockScreen').classList.add('hidden');
+            const mainContent = document.getElementById('mainContent');
+            mainContent.classList.remove('hidden');
+            mainContent.querySelector('.message-card').classList.add('animate__fadeInUp');
+            
+            const message = localStorage.getItem('love-message') || 
+                "Happy New Year, Bailiw! 🌟\nเจ้าเด็กน้อยย มีความสุขกะปีใหม่เยอะๆ ขอบคุณที่อยู่ทนกะพี่มาตลอดทั้งปีนะคับบ พี่รบกวนใบหลิวไว้เยอะเลย ดูแลตัวเองดีๆด้วยย ที่ใบหลิวป่วยบ่อยยเพราะดูแลตัวเองไม่ดีแน่เลย!! ขอให้ปีใหม่ปีนี้ใบหลิวสมหวังทุกอย่างที่หวังนะคับ มีความสุขยิ้มเย้ออๆนะคับบ ตอนใบหลิวยิ้มน่ารักที่สุดแล่ววว 🫣💖 (ตั้งใจเลือกรูปให้เลยนะอิอิ)";
+            const userMessage = document.getElementById('userMessage');
+            let index = 0;
+            
+            function typeWriter() {
+                if (index < message.length) {
+                    userMessage.innerHTML += message.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    createSparkles();
+                    createFireworks();
+                }
+            }
+            
+            typeWriter();
+            createStarField();
+        }
+
+        function setCustomMessage() {
+            const message = document.getElementById('customMessage').value;
+            localStorage.setItem('love-message', message);
+            alert('Message saved!');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(updateClock, 1000);
+            const testInput = document.getElementById('testTime');
+            testInput.value = '2025-02-01T13:12:00';
+            
+            const messageSwiper = initializeMessageSwiper();
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    messageSwiper.slideNext();
+                } else if (e.key === 'ArrowLeft') {
+                    messageSwiper.slidePrev();
+                }
+            });
+            
+            const checkTimeInterval = setInterval(() => {
+                if (checkTime()) {
+                    showMainContent();
+                    clearInterval(checkTimeInterval);
+                }
+            }, 1000);
+        });
+
+        document.addEventListener("keydown", function(event) {
+            // ตรวจสอบว่าเป็นการกดปุ่ม 'm' หรือไม่
+            if (event.key === "m" || event.key === "M") {
+                document.getElementById("testPanel").classList.toggle("hiddenM"); // สลับสถานะการแสดงของปุ่ม
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get reference to the submit button and comment input
+            const submitButton = document.getElementById('submitComment');
+            const commentInput = document.getElementById('commentInput');
+        
+            if (!submitButton || !commentInput) {
+                console.error('Comment form elements not found');
+                return;
+            }
+        
+            // Create the form element
+            const commentForm = document.createElement('form');
+            commentForm.id = 'commentForm';
+            commentForm.method = 'POST';
+            commentForm.target = 'hidden_iframe';
+            commentForm.action = 'https://script.google.com/macros/s/AKfycbymDt_vh-927UwcRvO2EppzFfWO_KQ3GeiSHwma-pjnKd5yq70hZs1cIpWcSuhHye5qVQ/exec';
+        
+            // Create hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+        
+            // Add event listener to submit button
+            submitButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const message = commentInput.value.trim();
+                
+                if (!message) {
+                    alert('กรุณากรอกข้อความก่อนส่งนะคะ');
+                    return;
+                }
+        
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.textContent = 'กำลังส่ง...';
+        
+                // Create and append form data
+                const formData = new FormData();
+                formData.append('comment', message);
+        
+                // Reset the form HTML and add new inputs
+                commentForm.innerHTML = '';
+                for (let pair of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = pair[0];
+                    input.value = pair[1];
+                    commentForm.appendChild(input);
+                }
+                
+                // Submit the form
+                document.body.appendChild(commentForm);
+                commentForm.submit();
+        
+                // Reset form after submission
+                setTimeout(() => {
+                    commentInput.value = '';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'ส่งข้อความ';
+                    document.body.removeChild(commentForm);
+                }, 2000);
+            });
+        });
+
+                // Create binary rain effect
+                function createBinaryBackground() {
+                    const container = document.getElementById('binaryBackground');
+                    for (let i = 0; i < 20; i++) {
+                        const line = document.createElement('div');
+                        line.className = 'binary-line';
+                        
+                        // Generate random binary string
+                        let binaryString = '';
+                        for (let j = 0; j < 100; j++) {
+                            binaryString += Math.random() > 0.5 ? '1' : '0';
+                            binaryString += ' ';
+                        }
+                        
+                        line.textContent = binaryString;
+                        line.style.left = Math.random() * 100 + 'vw';
+                        line.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                        container.appendChild(line);
+                    }
+                }
+        
+                // Start the hack effect
+                function startHackEffect() {
+                    document.getElementById('mainContent').classList.add('screen-flicker');
+                    
+                    setTimeout(() => {
+                        document.getElementById('glitchEffect').style.display = 'flex';
+                        document.getElementById('mainContent').classList.add('shake');
+                        
+                        setTimeout(() => {
+                            // Redirect to another website (replace with your target URL)
+                            window.location.href = 'page1.html';
+                        }, 3000); // Show glitch effect for 3 seconds
+                    }, 2000); // Start glitch after 2 seconds of flickering
+                }
+        
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Update clock every second
+                    setInterval(updateClock, 1000);
+                    
+                    // Create binary background for hack effect
+                    createBinaryBackground();
+                    
+                    // Start the hack effect after 5 seconds
+                    setTimeout(startHackEffect, 5000);
+                });
+    </script>
+</body>
+</html>
