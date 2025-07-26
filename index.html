@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype - ระบบจัดการไฟป่า</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-container">
+        <div class="particles" id="particles"></div>
+        <div class="logo-animation">
+            <div class="green-mission-logo">
+                <div class="title">GREEN</div>
+                <div class="subtitle">MISSION</div>
+            </div>
+            <div class="school-logo">
+                <div class="emblem">🏫</div>
+                <div class="name">โรงเรียน<br>ตัวอย่าง</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-page" id="landingPage">
+        <div class="hero-content">
+            <h1 class="hero-title">🔥 Prototype</h1>
+            <p class="hero-subtitle">ระบบจัดการไฟป่าอัจฉริยะ</p>
+            <p class="hero-description">
+                ติดตามข้อมูลลมและประเมินความเสี่ยงไฟป่าแบบเรียลไทม์<br>
+                พร้อมคำแนะนำการป้องกันและควบคุมไฟป่าอย่างมีประสิทธิภาพ<br>
+                <strong>สำหรับพื้นที่เขาวงพระจันทร์</strong>
+            </p>
+            <button class="cta-button" onclick="showApp()">
+                🚀 เริ่มระบบจัดการไฟป่า
+            </button>
+        </div>
+
+        <div class="features-preview">
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <div class="feature-title">ประเมินความเสี่ยงไฟป่า</div>
+                <div class="feature-desc">วิเคราะห์ลม อุณหภูมิ ความชื้น</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌪️</div>
+                <div class="feature-title">ทำนายทิศทางลุกลาม</div>
+                <div class="feature-desc">แสดงทิศทางการแพร่กระจาย</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">แนะนำยุทธวิธี</div>
+                <div class="feature-desc">วางแผนป้องกันและควบคุม</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <div class="feature-title">เตือนภัยฉุกเฉิน</div>
+                <div class="feature-desc">แจ้งเตือนสถานการณ์อันตราย</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App -->
+    <div class="app" id="app">
+        <div class="app-header">
+            <h1 class="app-title">🔥 Prototype - ระบบจัดการไฟป่า</h1>
+            <button class="back-btn" onclick="showLanding()">← กลับ</button>
+        </div>
+
+        <div class="app-grid">
+            <!-- Fire Risk Assessment Card -->
+            <div class="app-card">
+                <h2 class="card-title">🔥 ประเมินความเสี่ยงไฟป่า</h2>
+                <div class="fire-risk" id="fireRiskLevel">
+                    <div id="fireRiskText">กำลังประเมิน...</div>
+                    <div style="font-size: 0.9rem; margin-top: 10px;" id="fireRiskDetails"></div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">ดัชนีความเสี่ยง</div>
+                        <div class="info-value" id="fireRiskIndex">--</div>
+                        <div class="info-unit">/100</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ความเร็วลุกลาม</div>
+                        <div class="info-value" id="fireSpreadRate">--</div>
+                        <div class="info-unit">m/นาที</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wind Direction & Fire Spread -->
+            <div class="app-card">
+                <h2 class="card-title">🌪️ ทิศทางลม & การลุกลาม</h2>
+                <div class="wind-compass">
+                    <div class="compass-arrow" id="compassArrow"></div>
+                    <div class="compass-labels">
+                        <div class="compass-label n">N</div>
+                        <div class="compass-label e">E</div>
+                        <div class="compass-label s">S</div>
+                        <div class="compass-label w">W</div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">ความเร็วลม</div>
+                        <div class="info-value" id="windSpeed">--</div>
+                        <div class="info-unit">km/h</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ทิศทางลม</div>
+                        <div class="info-value" id="windDirection">--</div>
+                        <div class="info-unit">°</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fire Spread Prediction -->
+            <div class="app-card">
+                <h2 class="card-title">🎯 ทำนายการลุกลาม</h2>
+                <div class="fire-spread-visual" id="fireSpreadVisual">
+                    <div class="fire-center"></div>
+                    <div class="fire-spread-arrow" id="fireSpreadArrow"></div>
+                </div>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 1.1rem; font-weight: 600;">ทิศทางลุกลาม: <span id="spreadDirection">--</span></div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">ระยะทาง 1 ชั่วโมง: <span id="spreadDistance">--</span> เมตร</div>
+                </div>
+            </div>
+
+            <!-- Weather Conditions -->
+            <div class="app-card">
+                <h2 class="card-title">🌡️ สภาพอากาศ</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">อุณหภูมิ</div>
+                        <div class="info-value" id="temperature">--</div>
+                        <div class="info-unit">°C</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ความชื้น</div>
+                        <div class="info-value" id="humidity">--</div>
+                        <div class="info-unit">%</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ความกดอากาศ</div>
+                        <div class="info-value" id="pressure">--</div>
+                        <div class="info-unit">hPa</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ความรู้สึก</div>
+                        <div class="info-value" id="feelsLike">--</div>
+                        <div class="info-unit">°C</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="app-card">
+                <h2 class="card-title">💡 คำแนะนำการจัดการ</h2>
+                <div class="recommendations" id="recommendations">
+                    <div class="recommendation-item priority-medium">
+                        <div class="recommendation-icon">🔍</div>
+                        <div class="recommendation-text">
+                            <div class="recommendation-title">รอการวิเคราะห์</div>
+                            <div class="recommendation-desc">กำลังดาวน์โหลดข้อมูลเพื่อวิเคราะห์</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="app-card">
+                <h2 class="card-title">📊 แนวโน้มความเสี่ยง</h2>
+                <div class="chart-container">
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Control Card -->
+            <div class="app-card">
+                <h2 class="card-title">⚙️ ควบคุม</h2>
+                <button class="update-btn" id="updateBtn" onclick="fetchWeatherData()">
+                    🔄 อัปเดตข้อมูล
+                </button>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">🚨 แจ้งเตือนความเสี่ยงสูง:</label>
+                    <input type="range" id="riskAlert" min="30" max="90" value="60" style="width: 100%;">
+                    <span id="riskAlertValue">60</span>%
+                </div>
+                <div style="font-size: 0.9rem; opacity: 0.8;" id="lastUpdate">
+                    อัปเดตล่าสุด: --
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>กำลังโหลดข้อมูลการจัดการไฟป่า...</p>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="notifications" id="notifications"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

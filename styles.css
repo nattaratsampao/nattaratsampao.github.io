@@ -1,0 +1,1089 @@
+/* ตั้งค่าพื้นฐานทั้งหมด - รีเซ็ต margin, padding และใช้ box-sizing: border-box */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* สไตล์พื้นฐานของ body - ฟอนต์, พื้นหลังไล่สี, สีตัวอักษร */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ฟอนต์หลัก */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* พื้นหลังไล่สีน้ำเงิน-ม่วง */
+            min-height: 100vh; /* ความสูงขั้นต่ำเต็มหน้าจอ */
+            color: white; /* สีตัวอักษรเป็นสีขาว */
+            overflow-x: hidden; /* ซ่อนแถบเลื่อนแนวนอน */
+        }
+
+         .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOut 1.5s ease-in-out 6s forwards;
+            overflow: hidden;
+        }
+
+        .logo-animation {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .logo-animation::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            animation: scanLine 3s linear infinite;
+        }
+
+        .logo-animation::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(21, 101, 192, 0.2);
+            border-radius: 50%;
+            animation: scanLine 2s linear infinite reverse;
+        }
+
+        .green-mission-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32, #1B5E20);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 
+                0 0 50px rgba(76, 175, 80, 0.8),
+                0 0 100px rgba(76, 175, 80, 0.4),
+                inset 0 0 50px rgba(255, 255, 255, 0.1);
+            animation: epicLogoEnter 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .green-mission-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: logoShine 2s ease-in-out 1s infinite;
+            transform: rotate(45deg);
+        }
+
+        .green-mission-logo::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent);
+            pointer-events: none;
+        }
+
+        .green-mission-logo .title {
+            font-size: 28px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .green-mission-logo .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .school-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #1565C0, #0D47A1, #0A369D);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 
+                0 0 60px rgba(21, 101, 192, 0.6),
+                0 0 120px rgba(21, 101, 192, 0.3),
+                inset 0 0 40px rgba(255, 255, 255, 0.1);
+            animation: schoolLogoEpicEnter 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3.5s forwards;
+            opacity: 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-logo::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #FFD700, #FF6B35, #F7931E, #FFD700);
+            border-radius: 50%;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        .school-logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: schoolShine 2s ease-in-out 4s infinite;
+        }
+
+        .school-logo .emblem {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #FFD700, #FFA000, #FF8F00);
+            border-radius: 50%;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: emblemSpin 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .school-logo .emblem::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #FFD700, #FF6B35);
+            border-radius: 50%;
+            z-index: -1;
+            animation: emblemGlow 2s ease-in-out infinite alternate;
+        }
+
+        .school-logo .name {
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #4CAF50, #81C784, #1565C0);
+            border-radius: 50%;
+            animation: epicFloat 8s infinite linear;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+        }
+
+        .energy-wave {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 50%;
+            animation: energyPulse 1.5s ease-out infinite;
+        }
+
+        .energy-wave:nth-child(2) {
+            animation-delay: 0.3s;
+            border-color: rgba(21, 101, 192, 0.3);
+        }
+
+        .energy-wave:nth-child(3) {
+            animation-delay: 0.6s;
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatAround 20s infinite linear;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #2196F3, #64B5F6);
+            border-radius: 20px;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #FF9800, #FFB74D);
+            transform: rotate(45deg);
+            animation-delay: -10s;
+        }
+
+        @keyframes epicLogoEnter {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(-360deg);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.3) rotate(-180deg);
+                opacity: 0.7;
+                filter: blur(5px);
+            }
+            80% {
+                transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes schoolLogoEpicEnter {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotateY(180deg);
+                opacity: 0;
+                filter: blur(15px);
+            }
+            60% {
+                transform: translate(-50%, -50%) scale(1.2) rotateY(90deg);
+                opacity: 0.8;
+                filter: blur(3px);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        @keyframes scanLine {
+            0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+            100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.3; }
+        }
+
+        @keyframes logoShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.3); }
+            100% { text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.6); }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes schoolShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes emblemSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        @keyframes emblemGlow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes energyPulse {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes epicFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
+            }
+            50% {
+                transform: translateY(50vh) translateX(-20px) rotate(180deg) scale(1.2);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) translateX(15px) rotate(324deg) scale(0.8);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes epicContentFadeIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.9);
+                filter: blur(10px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeOut {
+            0% { 
+                opacity: 1; 
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            70% {
+                opacity: 0.3;
+                transform: scale(1.05);
+                filter: blur(5px);
+            }
+            100% { 
+                opacity: 0; 
+                visibility: hidden;
+                transform: scale(1.1);
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes contentFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+            100% { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.3); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, -50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-50px, -100px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-100px, 50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .green-mission-logo, .school-logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .green-mission-logo .title {
+                font-size: 18px;
+            }
+        }
+
+        /* หน้าแรก (Landing Page) - จัดวางแบบ flex ตรงกลางหน้าจอ */
+        .landing-page {
+            min-height: 100vh; /* ความสูงเต็มหน้าจอ */
+            display: flex; /* ใช้ flexbox */
+            flex-direction: column; /* จัดเรียงแนวตั้ง */
+            justify-content: center; /* จัดให้อยู่กลางแนวตั้ง */
+            align-items: center; /* จัดให้อยู่กลางแนวนอน */
+            text-align: center; /* จัดข้อความกลาง */
+            padding: 20px; /* ระยะห่างด้านใน */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* พื้นหลังไล่สี */
+            position: relative; /* สำหรับใส่ element ทับ */
+        }
+
+        /* เอฟเฟ็กต์พื้นหลังลายจุดแบบ overlay */
+        .landing-page::before {
+            content: ''; /* เนื้อหาว่าง */
+            position: absolute; /* วางทับหน้าจอ */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* SVG pattern ลายวงกลมทับซ้อน */
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1; /* ความโปร่งใส */
+        }
+
+        /* เนื้อหาหลักของหน้าแรก - อยู่เหนือ pattern */
+        .hero-content {
+            z-index: 1; /* อยู่เหนือ background pattern */
+            max-width: 700px; /* ความกว้างสูงสุด */
+        }
+
+        /* หัวข้อใหญ่หน้าแรก - มีไล่สีและแอนิเมชั่น */
+        .hero-title {
+            font-size: 4rem; /* ขนาดฟอนต์ใหญ่ */
+            font-weight: 800; /* น้ำหนักฟอนต์หนา */
+            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+            background: linear-gradient(45deg, #fff, #ff6b6b); /* ไล่สีขาว-แดง */
+            -webkit-background-clip: text; /* ใช้ไล่สีกับตัวอักษร */
+            -webkit-text-fill-color: transparent; /* ทำให้ตัวอักษรโปร่งใส */
+            background-clip: text;
+            animation: fadeInUp 1s ease-out; /* แอนิเมชั่นเลื่อนขึ้น */
+        }
+
+        /* หัวข้อรอง - มีแอนิเมชั่นช้ากว่า */
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0.9; /* ความโปร่งใสเล็กน้อย */
+            animation: fadeInUp 1s ease-out 0.3s both; /* แอนิเมชั่นหน่วง 0.3 วินาที */
+        }
+
+        /* คำอธิบายหน้าแรก */
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            line-height: 1.6; /* ระยะห่างบรรทัด */
+            animation: fadeInUp 1s ease-out 0.6s both; /* แอนิเมชั่นหน่วง 0.6 วินาที */
+        }
+
+        /* ปุ่ม Call-to-Action - มีไล่สี เงา และเอฟเฟ็กต์ hover */
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff4757); /* ไล่สีแดง */
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px; /* ขอบมน */
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease; /* เอฟเฟ็กต์การเปลี่ยนแปลง */
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); /* เงาใต้ปุ่ム */
+            animation: fadeInUp 1s ease-out 0.9s both; /* แอนิเมชั่นหน่วง 0.9 วินาที */
+        }
+
+        /* เอฟเฟ็กต์เมื่อ hover ปุ่ม - ยกขึ้นและเพิ่มเงา */
+        .cta-button:hover {
+            transform: translateY(-5px); /* ยกขึ้น 5px */
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4); /* เงาเข้มขึ้น */
+        }
+
+        /* Grid แสดงฟีเจอร์ตัวอย่าง - responsive grid */
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* auto-responsive columns */
+            gap: 20px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease-out 1.2s both; /* แอนิเมชั่นหน่วง 1.2 วินาที */
+        }
+
+        /* การ์ดฟีเจอร์ - กึ่งโปร่งใสด้วย backdrop-filter */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1); /* พื้นหลังขาวโปร่งใส */
+            backdrop-filter: blur(10px); /* เบลอพื้นหลัง (glass effect) */
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* ขอบโปร่งใส */
+            transition: transform 0.3s ease;
+        }
+
+        /* เอฟเฟ็กต์ hover การ์ดฟีเจอร์ */
+        .feature-card:hover {
+            transform: translateY(-5px); /* ยกขึ้นเมื่อ hover */
+        }
+
+        /* ไอคอนฟีเจอร์ */
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* หัวข้อฟีเจอร์ */
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* คำอธิบายฟีเจอร์ */
+        .feature-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* หน้าแอป - ซ่อนไว้ในตอนแรก */
+        .app {
+            display: none; /* ซ่อนไว้ */
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* แสดงหน้าแอปเมื่อมี class active */
+        .app.active {
+            display: block;
+        }
+
+        /* ส่วนหัวของแอป - มี glass effect */
+        .app-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); /* เอฟเฟ็กต์กระจกฝ้า */
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between; /* จัดให้อยู่ขอบซ้าย-ขวา */
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* หัวข้อแอป */
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* ปุ่มกลับ */
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* เอฟเฟ็กต์ hover ปุ่มกลับ */
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3); /* พื้นหลังขาวขึ้น */
+        }
+
+        /* Grid ของแอป - responsive layout */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* responsive columns */
+            gap: 20px;
+            max-width: 1400px; /* ความกว้างสูงสุด */
+            margin: 0 auto; /* จัดกลาง */
+        }
+
+        /* การ์ดแอป - glass morphism style */
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); /* เบลอพื้นหลัง */
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* เอฟเฟ็กต์ hover การ์ดแอป */
+        .app-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* หัวข้อการ์ด - มีไอคอนและข้อความ */
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+        }
+
+        /* แสดงระดับความเสี่ยงไฟไหม้ - มีสีและแอนิเมชั่นตามระดับ */
+        .fire-risk {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* ความเสี่ยงต่ำ - สีเขียว */
+        .fire-risk.low {
+            background: rgba(46, 204, 113, 0.2);
+            border: 2px solid #2ecc71;
+        }
+
+        /* ความเสี่ยงปานกลาง - สีเหลือง */
+        .fire-risk.medium {
+            background: rgba(241, 196, 15, 0.2);
+            border: 2px solid #f1c40f;
+        }
+
+        /* ความเสี่ยงสูง - สีแดง */
+        .fire-risk.high {
+            background: rgba(231, 76, 60, 0.2);
+            border: 2px solid #e74c3c;
+        }
+
+        /* ความเสี่ยงสูงมาก - สีแดงเข้มพร้อมแอนิเมชั่นกระพริบ */
+        .fire-risk.extreme {
+            background: rgba(192, 57, 43, 0.3);
+            border: 2px solid #c0392b;
+            animation: pulse 2s infinite; /* แอนิเมชั่นกระพริบ */
+        }
+
+        /* แอนิเมชั่นกระพริบสำหรับความเสี่ยงสูงมาก */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* เข็มทิศแสดงทิศทางลม - วงกลมพร้อมเข็ม */
+        .wind-compass {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
+            position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.3); /* ขอบวงกลม */
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* เข็มชี้ทิศทางลม - หมุนได้ตามทิศทาง */
+        .compass-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 90px;
+            background: linear-gradient(to top, #ff6b6b, #ff8e8e); /* ไล่สีแดง */
+            transform-origin: bottom center; /* จุดหมุนที่ด้านล่าง */
+            transform: translate(-50%, -100%) rotate(0deg); /* จัดตำแหน่งและหมุน */
+            border-radius: 4px;
+            transition: transform 0.5s ease; /* เอฟเฟ็กต์การหมุน */
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.5); /* เงาเรืองแสง */
+        }
+
+        /* หัวเข็มทิศ - สามเหลี่ยมแหลม */
+        .compass-arrow::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-bottom: 24px solid #ff6b6b; /* สร้างสามเหลี่ยมด้วย border */
+        }
+
+        /* ป้ายแสดงทิศ N E S W */
+        .compass-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* สไตล์ป้ายทิศ */
+        .compass-label {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ตำแหน่งป้ายแต่ละทิศ */
+        .compass-label.n { top: 10px; left: 50%; transform: translateX(-50%); } /* เหนือ */
+        .compass-label.e { top: 50%; right: 10px; transform: translateY(-50%); } /* ตะวันออก */
+        .compass-label.s { bottom: 10px; left: 50%; transform: translateX(-50%); } /* ใต้ */
+        .compass-label.w { top: 50%; left: 10px; transform: translateY(-50%); } /* ตะวันตก */
+
+        /* แสดงการคาดการณ์การแพร่กระจายไฟ - วงกลมพร้อมจุดไฟกลาง */
+        .fire-spread-visual {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            position: relative;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.1) 50%, transparent 100%); /* ไล่สีจากกลางออกนอก */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* จุดไฟกลาง - มีแอนิเมชั่นกระพริบ */
+        .fire-center {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ff4757, #ff6b6b); /* ไล่สีแดง */
+            border-radius: 50%;
+            position: relative;
+            animation: flicker 1.5s infinite alternate; /* แอนิเมชั่นกระพริบไฟ */
+        }
+
+        /* แอนิเมชั่นกระพริบไฟ - ขยายและหดตัว */
+        @keyframes flicker {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 71, 87, 0.8); }
+            100% { transform: scale(1.1); box-shadow: 0 0 30px rgba(255, 71, 87, 1); }
+        }
+
+        /* ลูกศรแสดงทิศทางการแพร่กระจายไฟ */
+        .fire-spread-arrow {
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            background: linear-gradient(to top, rgba(255, 107, 107, 0.8), transparent); /* ไล่สีจางไปด้านบน */
+            transform-origin: bottom center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            border-radius: 2px;
+        }
+
+        /* Grid แสดงข้อมูลสถิติ - responsive grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* การ์ดแสดงข้อมูลแต่ละตัว */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        /* ป้ายกำกับข้อมูล */
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        /* ค่าข้อมูลหลัก - ขนาดใหญ่และโดดเด่น */
+        .info-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* หน่วยของข้อมูล */
+        .info-unit {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* ส่วนแสดงคำแนะนำ */
+        .recommendations {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* รายการคำแนะนำแต่ละข้อ - มีสีขอบตามระดับความสำคัญ */
+        .recommendation-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid; /* ขอบซ้ายจะมีสีตามความสำคัญ */
+        }
+
+        /* คำแนะนำความสำคัญสูง - ขอบแดง */
+        .recommendation-item.priority-high {
+            border-left-color: #e74c3c;
+        }
+
+        /* คำแนะนำความสำคัญปานกลาง - ขอบเหลือง */
+        .recommendation-item.priority-medium {
+            border-left-color: #f1c40f;
+        }
+
+        /* คำแนะนำความสำคัญต่ำ - ขอบเขียว */
+        .recommendation-item.priority-low {
+            border-left-color: #2ecc71;
+        }
+
+        /* ไอคอนคำแนะนำ */
+        .recommendation-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            flex-shrink: 0; /* ไม่ให้หดตัว */
+        }
+
+        /* ข้อความคำแนะนำ */
+        .recommendation-text {
+            flex: 1; /* ขยายเต็มพื้นที่ที่เหลือ */
+        }
+
+        /* หัวข้อคำแนะนำ */
+        .recommendation-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* รายละเอียดคำแนะนำ */
+        .recommendation-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* คอนเทนเนอร์สำหรับแผนภูมิ */
+        .chart-container {
+            position: relative;
+            height: 300px; /* ความสูงคงที่ */
+            margin-bottom: 20px;
+        }
+
+        /* ปุ่มอัปเดต - มีไล่สีและเอฟเฟ็กต์ */
+        .update-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff4757);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%; /* กว้างเต็มที่ */
+            margin-bottom: 15px;
+        }
+
+        /* เอฟเฟ็กต์ hover ปุ่มอัปเดต */
+        .update-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* สถานะปุ่มถูก disable */
+        .update-btn:disabled {
+            opacity: 0.6; /* โปร่งใสขึ้น */
+            cursor: not-allowed; /* เปลี่ยน cursor */
+            transform: none; /* ไม่มีเอฟเฟ็กต์ */
+        }
+
+        /* พื้นที่แสดงการแจ้งเตือน - มุมขวาบน */
+        .notifications {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000; /* อยู่บนสุด */
+        }
+
+        /* กล่องการแจ้งเตือนแต่ละอัน */
+        .notification {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px); /* เริ่มต้นนอกหน้าจอ */
+            transition: transform 0.3s ease;
+            border-left: 4px solid #ff6b6b; /* ขอบซ้ายสีแดง */
+        }
+
+        /* แสดงการแจ้งเตือน - เลื่อนเข้ามา */
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* การแจ้งเตือนแบบคำเตือน - ขอบสีส้ม */
+        .notification.warning {
+            border-left-color: #ffa500;
+        }
+
+        /* การแจ้งเตือนแบบอันตราย - ขอบสีแดงเข้ม */
+        .notification.danger {
+            border-left-color: #ff4757;
+        }
+
+        /* หน้าจอโหลด - ซ่อนไว้ในตอนแรก */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* แสดงหน้าจอโหลด */
+        .loading.show {
+            display: block;
+        }
+
+        /* ไอคอนหมุน loading */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3); /* ขอบโปร่งใส */
+            border-radius: 50%;
+            border-top-color: white; /* ขอบบนสีขาว */
+            animation: spin 1s ease-in-out infinite; /* แอนิเมชั่นหมุน */
+            margin: 0 auto 10px;
+        }
+
+        /* แอนิเมชั่นหมุน */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* แอนิเมชั่นเลื่อนขึ้นพร้อมเฟด - ใช้กับหลายองค์ประกอบ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0; /* เริ่มต้นโปร่งใส */
+                transform: translateY(30px); /* อยู่ล่างกว่าตำแหน่งจริง 30px */
+            }
+            to {
+                opacity: 1; /* แสดงเต็มที่ */
+                transform: translateY(0); /* อยู่ตำแหน่งจริง */
+            }
+        }
+
+        /* Responsive Design สำหรับหน้าจอเล็ก (มือถือ) */
+        @media (max-width: 768px) {
+            /* ลดขนาดหัวข้อใหญ่บนมือถือ */
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            /* เปลี่ยน grid แอปให้เป็น 1 คอลัมน์บนมือถือ */
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* เปลี่ยน grid ฟีเจอร์ให้เป็น 1 คอลัมน์บนมือถือ */
+            .features-preview {
+                grid-template-columns: 1fr;
+            }
+        }
