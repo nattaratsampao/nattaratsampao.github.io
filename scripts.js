@@ -463,21 +463,6 @@ function calculateFireRisk(weather) {
 
 // ===== Landing Page Effects =====
 
-// Create floating particles
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        particlesContainer.appendChild(particle);
-    }
-}
-
 // Logo transition effect with epic timing
 function initLogoTransition() {
     const greenLogo = document.querySelector('.green-mission-logo');
@@ -733,14 +718,14 @@ function generateRecommendations(weather, riskData, windData) {
         recommendations.push({
             priority: 'high',
             icon: '🚨',
-            title: 'เตรียมพร้อมอพยพ',
-            desc: `ความเสี่ยงสูงมาก เตรียมอพยพพื้นที่ทาง${windDir} ที่ลมพัดไป`
+            title: 'เตรียมอพยพ',
+            desc: `ความเสี่ยงสูงมาก เตรียมอพยพพื้นที่ทาง ${windDir} ที่ลมพัดไป`
         });
 
         recommendations.push({
             priority: 'high',
             icon: '🚁',
-            title: 'เรียกเฮลิคอปเตอร์',
+            title: 'หน่วยดับเพลิงเข้าประจำการ',
             desc: 'ติดต่อหน่วยดับเพลิงทางอากาศเพื่อเตรียมพร้อม'
         });
     }
@@ -750,7 +735,7 @@ function generateRecommendations(weather, riskData, windData) {
         recommendations.push({
             priority: 'high',
             icon: '💨',
-            title: 'ระวังลมแรง',
+            title: 'ลมแรง',
             desc: `ลม ${windSpeed} km/h จะทำให้ไฟลุกลามเร็ว หลีกเลี่ยงการดับไฟแนวขวาง`
         });
     }
@@ -770,7 +755,7 @@ function generateRecommendations(weather, riskData, windData) {
     recommendations.push({
         priority: 'medium',
         icon: '👥',
-        title: 'จัดตำแหน่งทีม',
+        title: 'การจัดตำแหน่งทีมดับเพลิง',
         desc: `วางทีมดับเพลิงทางด้านข้างของทิศทางลม หลีกเลี่ยงการยืนหน้าลม`
     });
 
@@ -780,7 +765,7 @@ function generateRecommendations(weather, riskData, windData) {
             priority: 'medium',
             icon: '🚛',
             title: 'ใช้รถดับเพลิงหนัก',
-            desc: 'ลมแรงต้องใช้รถดับเพลิงขนาดใหญ่ หลีกเลี่ยงการพ่นน้ำแรงงาน'
+            desc: 'ลมแรงต้องใช้รถดับเพลิงขนาดใหญ่'
         });
     }
 
