@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,56 +9,72 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
+
 <body>
     <!-- Loading Animation -->
-    <div class="loader-container">
-        <div class="particles" id="particles"></div>
+    <div class="loader-container" id="loadingAnimation">
+        <div class="floating-particles" id="particles"></div>
         <div class="logo-animation">
             <div class="green-mission-logo">
-                <div class="title">GREEN</div>
-                <div class="subtitle">MISSION</div>
+                <div class="img"><center><img src="pic/GreenMission.png"></center></div>
             </div>
             <div class="school-logo">
-                <div class="emblem">🏫</div>
-                <div class="name">โรงเรียน<br>ตัวอย่าง</div>
+                <div class="img"><center><img src="pic/PCSHS_Lop_Buri_(th).svg.png"></center></div>
             </div>
         </div>
     </div>
 
+    <!-- Background Effects -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+
+    <!-- Landing Page -->
     <div class="landing-page" id="landingPage">
         <div class="hero-content">
-            <h1 class="hero-title">🔥 Prototype</h1>
-            <p class="hero-subtitle">ระบบจัดการไฟป่าอัจฉริยะ</p>
+            <h1 class="hero-title">Green Mission</h1>
+            <h2 class="hero-subtitle">ระบบตรวจจับความเสี่ยงไฟป่า</h2>
             <p class="hero-description">
-                ติดตามข้อมูลลมและประเมินความเสี่ยงไฟป่าแบบเรียลไทม์<br>
-                พร้อมคำแนะนำการป้องกันและควบคุมไฟป่าอย่างมีประสิทธิภาพ<br>
-                <strong>สำหรับพื้นที่เขาวงพระจันทร์</strong>
+                เทคโนโลยี AI ล้ำสมัยสำหรับการตรวจจับและคาดการณ์ความเสี่ยงไฟป่า
+                ช่วยปกป้องป่าไผ่และสิ่งแวดล้อมของเรา พร้อมระบบแจ้งเตือนแบบเรียลไทม์
             </p>
-            <button class="cta-button" onclick="showApp()">
-                🚀 เริ่มระบบจัดการไฟป่า
-            </button>
-        </div>
 
-        <div class="features-preview">
-            <div class="feature-card">
-                <div class="feature-icon">🔥</div>
-                <div class="feature-title">ประเมินความเสี่ยงไฟป่า</div>
-                <div class="feature-desc">วิเคราะห์ลม อุณหภูมิ ความชื้น</div>
+            <div class="cta-container">
+                <button class="cta-button" onclick="showApp()">
+                    🚀 เริ่มใช้งานทันที
+                </button>
+                <button class="cta-button cta-secondary" onclick="scrollToFeatures()">
+                    🌟 ดูฟีเจอร์เพิ่มเติม
+                </button>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌪️</div>
-                <div class="feature-title">ทำนายทิศทางลุกลาม</div>
-                <div class="feature-desc">แสดงทิศทางการแพร่กระจาย</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-title">แนะนำยุทธวิธี</div>
-                <div class="feature-desc">วางแผนป้องกันและควบคุม</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚨</div>
-                <div class="feature-title">เตือนภัยฉุกเฉิน</div>
-                <div class="feature-desc">แจ้งเตือนสถานการณ์อันตราย</div>
+
+            <div class="features-showcase">
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3 class="feature-title">ตรวจจับความเสี่ยงแบบเรียลไทม์</h3>
+                    <p class="feature-desc">AI วิเคราะห์ข้อมูลสภาพอากาศและสิ่งแวดล้อมตลอด 24 ชั่วโมง</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌪️</div>
+                    <h3 class="feature-title">วิเคราะห์ทิศทางลมและการแพร่กระจาย</h3>
+                    <p class="feature-desc">คาดการณ์เส้นทางการแพร่กระจายไฟด้วยข้อมูลลมและภูมิประเทศ</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">แดชบอร์ดข้อมูลครบครัน</h3>
+                    <p class="feature-desc">รายงานสถิติและกราฟแสดงแนวโน้มความเสี่ยงอย่างละเอียด</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">แจ้งเตือนฉับพลัน</h3>
+                    <p class="feature-desc">ระบบแจ้งเตือนทันทีเมื่อพบสถานการณ์เสี่ยงสูง</p>
+                </div>
             </div>
         </div>
     </div>
@@ -65,7 +82,7 @@
     <!-- App -->
     <div class="app" id="app">
         <div class="app-header">
-            <h1 class="app-title">🔥 Prototype - ระบบจัดการไฟป่า</h1>
+            <h1 class="app-title">🔥 Green Mission - ระบบจัดการไฟป่า</h1>
             <button class="back-btn" onclick="showLanding()">← กลับ</button>
         </div>
 
@@ -73,7 +90,7 @@
             <!-- Fire Risk Assessment Card -->
             <div class="app-card">
                 <h2 class="card-title">🔥 ประเมินความเสี่ยงไฟป่า</h2>
-                <div class="fire-risk" id="fireRiskLevel">
+                <div class="fire-risk medium" id="fireRiskLevel">
                     <div id="fireRiskText">กำลังประเมิน...</div>
                     <div style="font-size: 0.9rem; margin-top: 10px;" id="fireRiskDetails"></div>
                 </div>
@@ -93,7 +110,7 @@
 
             <!-- Wind Direction & Fire Spread -->
             <div class="app-card">
-                <h2 class="card-title">🌪️ ทิศทางลม & การลุกลาม</h2>
+                <h2 class="card-title">🌪️ ทิศทางลม</h2>
                 <div class="wind-compass">
                     <div class="compass-arrow" id="compassArrow"></div>
                     <div class="compass-labels">
@@ -125,8 +142,10 @@
                     <div class="fire-spread-arrow" id="fireSpreadArrow"></div>
                 </div>
                 <div style="text-align: center; margin-bottom: 20px;">
-                    <div style="font-size: 1.1rem; font-weight: 600;">ทิศทางลุกลาม: <span id="spreadDirection">--</span></div>
-                    <div style="font-size: 0.9rem; opacity: 0.8;">ระยะทาง 1 ชั่วโมง: <span id="spreadDistance">--</span> เมตร</div>
+                    <div style="font-size: 1.1rem; font-weight: 600;">ทิศทางลุกลาม: <span id="spreadDirection">--</span>
+                    </div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">ระยะทาง 1 ชั่วโมง: <span id="spreadDistance">--</span>
+                        เมตร</div>
                 </div>
             </div>
 
@@ -207,4 +226,5 @@
 
     <script src="scripts.js"></script>
 </body>
+
 </html>
