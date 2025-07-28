@@ -704,99 +704,141 @@ function predictFireSpread(windDirection, windSpeed, riskIndex) {
     };
 }
 
-// ===== การสร้างคำแนะนำการจัดการไฟป่า =====
-// Generate fire management recommendations - สร้างคำแนะนำสำหรับการจัดการไฟป่า
 function generateRecommendations(weather, riskData, windData) {
-    const recommendations = [];      // อาร์เรย์เก็บคำแนะนำ
-    const windSpeed = weather.wind_speed_10m;  // ความเร็วลม
-    const riskIndex = riskData.index;          // ดัชนีความเสี่ยง
-    const windDir = windData.name;             // ชื่อทิศทางลม
+    const recommendations = [];
+    const windSpeed = weather.wind_speed_10m;  // ความเร็วลม (km/h)
+    const riskIndex = riskData.index;          // ดัชนีความเสี่ยง (%)
+    const windDir = windData.name;             // ทิศทางลม
+    const temperature = weather.temperature_2m; // อุณหภูมิ
+    const humidity = weather.relative_humidity_2m; // ความชื้น
 
-    // ===== คำแนะนำความสำคัญสูง =====
-    // คำแนะนำสำหรับความเสี่ยงสูงมาก (>70%)
-    if (riskIndex > 70) {
+    // ===== การประเมินสถานการณ์เบื้องต้น (Initial Attack Assessment) =====
+    // ตามหลักการ NWCG - การโจมตีเริ่มต้นอย่างปลอดภัยและรุนแรง
+    if (riskIndex > 80) {
         recommendations.push({
-            priority: 'high',
+            priority: 'critical',
             icon: '🚨',
-            title: 'เตรียมอพยพ',
-            desc: `ความเสี่ยงสูงมาก เตรียมอพยพพื้นที่ทาง ${windDir} ที่ลมพัดไป`
+            title: 'สถานการณ์วิกฤต - เปิดใช้แผนอพยพ',
+            desc: `ความเสี่ยงสูงสุด (${riskIndex}%) ดำเนินการอพยพทันที โดยเฉพาะพื้นที่ทางด้าน${windDir}`,
+            reference: 'NWCG Standards - Emergency Evacuation Protocol'
         });
 
         recommendations.push({
-            priority: 'high',
-            icon: '🚁',
-            title: 'หน่วยดับเพลิงเข้าประจำการ',
-            desc: 'ติดต่อหน่วยดับเพลิงทางอากาศเพื่อเตรียมพร้อม'
+            priority: 'critical',
+            icon: '✈️',
+            title: 'เรียกทรัพยากรทางอากาศ',
+            desc: 'ส่งคำขอทรัพยากรดับเพลิงทางอากาศและทีมดับเพลิงชั้นนำ (Type 1 Hotshot Crews)',
+            reference: 'NIFC Resource Ordering Standards'
         });
     }
 
-    // คำแนะนำสำหรับลมแรง (>15 km/h)
-    if (windSpeed > 15) {
+    // ===== การวิเคราะห์ลมและการจัดตำแหน่งทีม (Wind Analysis & Crew Positioning) =====
+    // ตามหลักการ NWCG - หลีกเลี่ยงการยืนในเส้นทางไฟ
+    if (windSpeed > 25) {
         recommendations.push({
             priority: 'high',
             icon: '💨',
-            title: 'ลมแรง',
-            desc: `ลม ${windSpeed} km/h จะทำให้ไฟลุกลามเร็ว หลีกเลี่ยงการดับไฟแนวขวาง`
+            title: 'เงื่อนไขลมอันตราย',
+            desc: `ลมความเร็ว ${windSpeed} km/h - หลีกเลี่ยงการดับไฟโจมตีตรง (Direct Attack) ใช้วิธีอ้อม (Indirect Attack)`,
+            reference: 'NWCG - 18 Watch Out Situations'
         });
     }
 
-    // คำแนะนำสร้างแนวกันไฟ
+    // การจัดตำแหน่งทีมตามทิศลม (ปรับปรุงตามมาตรฐานสากล)
+    recommendations.push({
+        priority: 'high',
+        icon: '👥',
+        title: 'การจัดตำแหน่งทีมดับเพลิง',
+        desc: `จัดทีมไว้ทางด้านข้างของทิศลม (Flanking Position) หลีกเลี่ยงการอยู่หน้าไฟและหลังไฟ พื้นที่ปลอดภัย (Safety Zone) ต้องมีขนาดอย่างน้อย 4 เท่าของความสูงเปลวไฟ`,
+        reference: 'NWCG - 10 Standard Firefighting Orders'
+    });
+
+    // ===== การสร้างแนวกันไฟ (Fireline Construction) =====
     if (riskIndex > 50) {
+        const firelineWidth = windSpeed > 20 ? '5-10 เมตร' : '3-5 เมตร';
         recommendations.push({
             priority: 'high',
             icon: '🛡️',
-            title: 'สร้างแนวกันไฟ',
-            desc: `สร้างแนวกันไฟทางด้าน${windDir} ให้ห่างจากแหล่งไฟ 100-200 เมตร`
+            title: 'สร้างแนวกันไฟ (Fireline)',
+            desc: `สร้างแนวกันไฟกว้าง ${firelineWidth} ทางด้านข้างลม หลีกเลี่ยงการสร้างแนวตรงกับทิศลม ใช้สิ่งกีดขวางธรรมชาติเสริม`,
+            reference: 'NWCG Fireline Handbook PMS 410-1'
         });
     }
 
-    // ===== คำแนะนำความสำคัญปานกลาง =====
-    // การจัดตำแหน่งทีมตามทิศลม
-    recommendations.push({
-        priority: 'medium',
-        icon: '👥',
-        title: 'การจัดตำแหน่งทีมดับเพลิง',
-        desc: `วางทีมดับเพลิงทางด้านข้างของทิศทางลม หลีกเลี่ยงการยืนหน้าลม`
-    });
+    // ===== เทคนิคการเผาย้อนกลับ (Backburning/Burnout Operations) =====
+    if (riskIndex > 60 && windSpeed < 30) {
+        recommendations.push({
+            priority: 'medium',
+            icon: '🔥',
+            title: 'พิจารณาการเผาย้อน (Backburning)',
+            desc: 'ดำเนินการเผาย้อนกลับในเงื่อนไขลมสงบ เพื่อลดเชื้อเพลิงข้างหน้า ต้องมีผู้เชี่ยวชาญควบคุม',
+            reference: 'NWCG Prescribed Fire Planning and Implementation'
+        });
+    }
 
-    // คำแนะนำอุปกรณ์สำหรับลมแรง
+    // ===== การประเมินสภาพอากาศสำคัญ (Critical Weather Assessment) =====
+    if (temperature > 30 && humidity < 30) {
+        recommendations.push({
+            priority: 'high',
+            icon: '🌡️',
+            title: 'สภาพอากาศอันตราย',
+            desc: `อุณหภูมิสูง (${temperature}°C) ความชื้นต่ำ (${humidity}%) เพิ่มความระมัดระวัง ช่วงเวลา 14:00-17:00 เป็นช่วงวิกฤต`,
+            reference: 'Common Denominators of Fire Behavior on Tragedy Fires'
+        });
+    }
+
+    // ===== ทรัพยากรและอุปกรณ์ (Resources & Equipment) =====
     if (windSpeed > 20) {
         recommendations.push({
             priority: 'medium',
             icon: '🚛',
-            title: 'ใช้รถดับเพลิงหนัก',
-            desc: 'ลมแรงต้องใช้รถดับเพลิงขนาดใหญ่'
+            title: 'เรียกรถดับเพลิงหนัก',
+            desc: 'สภาพลมแรงต้องใช้รถดับเพลิงขนาดใหญ่ (Type 1 Engine) และอุปกรณ์สปริงเกลอร์',
+            reference: 'NWCG Standards for Wildland Fire Resource Typing PMS 200'
         });
     }
 
-    // การเตรียมแหล่งน้ำ
+    // การเตรียมแหล่งน้ำ (ปรับปรุง)
     recommendations.push({
         priority: 'medium',
         icon: '💧',
-        title: 'เตรียมแหล่งน้ำ',
-        desc: 'ตรวจสอบแหล่งน้ำใกล้เคียง เตรียมถังน้ำสำรอง'
+        title: 'การจัดหาแหล่งน้ำ',
+        desc: 'กำหนดแหล่งน้ำปฐมภูมิ รอง และทติติภูมิ ระยะห่างไม่เกิน 1 กิโลเมตร ตรวจสอบการเข้าถึงของยานพาหนะ',
+        reference: 'NWCG Water Supply Guidelines'
     });
 
-    // ===== คำแนะนำความปลอดภัย =====
-    // เส้นทางหนีฉุกเฉินสำหรับความเสี่ยงสูง
-    if (riskIndex > 60) {
+    // ===== ความปลอดภัยและเส้นทางหนี (Safety & Escape Routes) =====
+    if (riskIndex > 50) {
         recommendations.push({
-            priority: 'high',
+            priority: 'critical',
             icon: '⚠️',
-            title: 'ตรวจสอบเส้นทางหนี',
-            desc: 'เตรียมเส้นทางหนีฉุกเฉิน 2-3 ทาง หลีกเลี่ยงทิศทางลม'
+            title: 'LCES - เส้นทางหนีและพื้นที่ปลอดภัย',
+            desc: 'Lookouts (จุดสังเกตการณ์), Communications (การสื่อสาร), Escape Routes (เส้นทางหนี 2-3 ทาง), Safety Zones (พื้นที่ปลอดภัย) ต้องชัดเจน',
+            reference: 'NWCG LCES System'
         });
     }
 
-    // การติดตามสภาพอากาศ
+    // การติดตามสภาพอากาศ (ปรับปรุง)
     recommendations.push({
-        priority: 'low',
-        icon: '🌡️',
-        title: 'ติดตามสภาพอากาศ',
-        desc: 'เฝ้าระวังการเปลี่ยนแปลงทิศทางลมและความเร็วลม'
+        priority: 'medium',
+        icon: '📡',
+        title: 'ระบบเฝ้าระวังสภาพอากาศ',
+        desc: 'ติดตั้งสถานีอุตุนิยมวิทยาแบบเคลื่อนที่ (RAWS) เฝ้าระวังการเปลี่ยนแปลงลมทุก 15 นาที',
+        reference: 'NWCG Fire Weather Guidelines'
     });
 
-    return recommendations; // ส่งกลับรายการคำแนะนำทั้งหมด
+    // ===== การสื่สารและการประสานงาน (Communication & Coordination) =====
+    recommendations.push({
+        priority: 'high',
+        icon: '📻',
+        title: 'ระบบการสื่อสาร',
+        desc: 'ใช้ความถี่วิทยุเฉพาะสำหรับไฟป่า มีการสื่อสารสำรอง ทดสอบการสื่อสารทุก 30 นาที',
+        reference: 'NWCG Communications Standards'
+    });
+
+    // เรียงลำดับตามความสำคัญ
+    const priorityOrder = { 'critical': 1, 'high': 2, 'medium': 3, 'low': 4 };
+    return recommendations.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
 }
 
 // ===== การอัปเดตการแสดงผล =====
